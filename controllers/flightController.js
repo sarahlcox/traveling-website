@@ -4,7 +4,7 @@ const skyscanner = {
 getPrice : function (req,res) {
   console.log(req);
 var options = {
-  method: 'GET',
+  method: 'POST',
   url: 'https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/autosuggest/v1.0/US/USD/en-US/',
   params: {query: "Chicago"},
   headers: {
