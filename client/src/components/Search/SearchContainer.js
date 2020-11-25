@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import Container from 'react-bootstrap/Container';
+import Where from './Where.js';
 // import "./style.css";
 class SearchContainer extends Component {
     // Setting the component's initial state
@@ -11,11 +12,7 @@ class SearchContainer extends Component {
         return (
             <Jumbotron fluid>
             <Container>
-                <h1>Fluid jumbotron</h1>
-                <p>
-                This is a modified jumbotron that occupies the entire horizontal space of
-                its parent.
-                </p>
+                <Where />
             </Container>
             </Jumbotron>
         )
