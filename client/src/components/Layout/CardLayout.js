@@ -1,7 +1,11 @@
-import React, { Component } from "react";
-import Card from 'react-bootstrap/Card';
-import CardGroup from 'react-bootstrap/CardGroup';
-import Headlines from '../Headlines/index.js';
+import React, { Component } from 'react';
+import CardDeck from 'react-bootstrap/CardDeck';
+import Headlines from '../Headlines/headlines.js';
+import Flights from '../Flights/flights.js';
+import Hotels from '../Hotels/hotels.js';
+import Attractions from '../Attractions/attractions.js';
+import './cardlayout.css';
+
 // import "./style.css";
 class CardLayout extends Component {
     // Setting the component's initial state
@@ -10,54 +14,15 @@ class CardLayout extends Component {
     };
     render() {
         return (
-            <div>
-            <CardGroup>
-                <Card>
-                    <Card.Img variant="top" src="holder.js/100px160" />
-                    <Card.Body>
-                    <Card.Title>Card title</Card.Title>
-                    <Card.Text>
-                        This is a wider card with supporting text below as a natural lead-in to
-                        additional content. This content is a little bit longer.
-                    </Card.Text>
-                    </Card.Body>
-                    <Card.Footer>
-                    <small className="text-muted">Last updated 3 mins ago</small>
-                    </Card.Footer>
-                </Card>
-                <Headlines />
-                </CardGroup>
-
-            <CardGroup>
-                <Card>
-                    <Card.Img variant="top" src="holder.js/100px160" />
-                    <Card.Body>
-                    <Card.Title>Card title</Card.Title>
-                    <Card.Text>
-                        This is a wider card with supporting text below as a natural lead-in to
-                        additional content. This card has even longer content than the first to
-                        show that equal height action.
-                    </Card.Text>
-                    </Card.Body>
-                    <Card.Footer>
-                    <small className="text-muted">Last updated 3 mins ago</small>
-                    </Card.Footer>
-                </Card>
-                <Card>
-                    <Card.Img variant="top" src="holder.js/100px160" />
-                    <Card.Body>
-                    <Card.Title>Card title</Card.Title>
-                    <Card.Text>
-                        This is a wider card with supporting text below as a natural lead-in to
-                        additional content. This card has even longer content than the first to
-                        show that equal height action.
-                    </Card.Text>
-                    </Card.Body>
-                    <Card.Footer>
-                    <small className="text-muted">Last updated 3 mins ago</small>
-                    </Card.Footer>
-                </Card>
-            </CardGroup>
+            <div className="card-cont">
+                <CardDeck>
+                    <Flights />
+                    <Headlines />
+                </CardDeck>
+                <CardDeck>
+                    <Hotels />
+                    <Attractions />
+                </CardDeck>
         </div>
         )
     }
