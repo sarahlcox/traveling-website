@@ -1,4 +1,4 @@
-let getCityID = require("./skyscantest") 
+let getCityID = require("./skyscanID") 
 
 var axios = require("axios").default;
 async function getFlightPrice(city1, city2, outboundDate){
