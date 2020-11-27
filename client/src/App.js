@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Login from "./components/Login";
-import Home from './pages/home';
+import Home from './pages/Home';
 import MyNav from "./pages/navbar"
 import 'bootstrap/dist/css/bootstrap.min.css';
 
