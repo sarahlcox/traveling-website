@@ -11,7 +11,7 @@ async function getFlightPrice(city1, city2, outboundDate){
     url: "https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/US/USD/en-US/"+cityOne+"/"+cityTwo+"/"+ outboundDate,
     
     headers: {
-        'x-rapidapi-key': 'a0e26770e6mshacbd79b3c68c795p142795jsn2d20c01986cc',
+        'x-rapidapi-key': process.env.SKYSCANNER_APIKEY,
         'x-rapidapi-host': 'skyscanner-skyscanner-flight-search-v1.p.rapidapi.com'
     }
     };
@@ -24,4 +24,4 @@ async function getFlightPrice(city1, city2, outboundDate){
         // return error;
     });
 }
-getFlightPrice("Chicago", "New York", "2020-12-01").then(res => console.log("sky2L27", res.data))
+export default getFlightPrice;

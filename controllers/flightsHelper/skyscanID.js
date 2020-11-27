@@ -5,7 +5,7 @@ var options = {
   url: 'https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/autosuggest/v1.0/US/USD/en-US/',
   params: {query: city},
   headers: {
-    'x-rapidapi-key': 'a0e26770e6mshacbd79b3c68c795p142795jsn2d20c01986cc',
+    'x-rapidapi-key': process.env.SKYSCANNER_APIKEY,
     'x-rapidapi-host': 'skyscanner-skyscanner-flight-search-v1.p.rapidapi.com'
   }
 };
