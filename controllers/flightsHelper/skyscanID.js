@@ -13,12 +13,11 @@ var options = {
 
 var axiosreq = await axios.request(options);
 
-    console.log("CityId function" ,axiosreq.data.Places[0].PlaceId);
+    // console.log("CityId function" ,axiosreq.data.Places[0].PlaceId);
     return axiosreq.data.Places[0].PlaceId;
 
 }
 
-getCityID("Chicago")
 
 module.exports = getCityID;
 // getCityID("Evanston");

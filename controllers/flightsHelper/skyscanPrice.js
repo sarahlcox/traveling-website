@@ -18,7 +18,7 @@ async function getFlightPrice(city1, city2, outboundDate){
     };
 
     return axios.request(options).then(function (response) {
-        console.log("sky2L20", response.data);
+        // console.log("sky2L20", response.data);
         return response;
     }).catch(function (error) {
         console.error(error);
@@ -26,4 +26,4 @@ async function getFlightPrice(city1, city2, outboundDate){
     });
 }
 // getFlightPrice("Chicago", "New York", "2020-12-01").then(res => console.log("sky2L27", res.data))
-export default getFlightPrice;
+module.exports = getFlightPrice;
