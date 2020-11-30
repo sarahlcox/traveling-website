@@ -3,10 +3,10 @@ import { Navbar,Nav} from 'react-bootstrap'
 function MyNav() {
     return (
     <Navbar bg="dark" variant="dark" expand="lg" sticky="top">
-        <Navbar.Brand href="#home">Let's Travel!</Navbar.Brand>
+        <Navbar.Brand href="/">Let's Travel!</Navbar.Brand>
         <Nav className="mr-auto">
         <Nav.Link href="/">Home</Nav.Link>
-        <Nav.Link href="/AboutMe">Sign Up</Nav.Link>
+        <Nav.Link href="/signup">Sign Up</Nav.Link>
         </Nav>
     </Navbar>
     );

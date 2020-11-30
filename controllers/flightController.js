@@ -25,12 +25,9 @@ getPrice : getFlightPrice()
 // //nest the price the api here
 // });
 
-  
+
 
 // }
-
-
-
 
 }
 // skyscanner.getPrice("chicago");

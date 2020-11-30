@@ -1,8 +1,9 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Login from "./components/Login";
-import Home from './pages/Home';
-import MyNav from "./pages/navbar"
+import Home from './pages/home';
+import MyNav from "./components/Nav/navbar"
+import SignUp from "./pages/signup"
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
@@ -12,6 +13,7 @@ function App() {
       <MyNav/>
       <div>
       <Route exact path="/" component={Home}/>
+      <Route exact path="/signup" component={SignUp}/>
       </div>
     </Router>
      
