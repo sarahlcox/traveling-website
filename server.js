@@ -5,10 +5,8 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 const routes = require("./routes");
 
-
-// Testing to see push to main
-
-// test comment
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
