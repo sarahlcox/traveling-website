@@ -3,13 +3,21 @@ import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
+import API from "../../utils/API"
 // import "./style.css";
-class Where extends Component {
-    // Setting the component's initial state
-    state = {
 
-    };
-    render() {
+function FormControl(){
+    
+    React.useEffect(()=>{
+        //make state and pass the state instead of city names & date
+        API.getFlight({
+            city1: "Chicago",
+            city2: "New York",
+            outboundDate: "test"
+        }).then(res =>{
+            console.log("FE res", res)
+        })
+    },[])
         return (
             <Form>
             <Row>
@@ -27,7 +35,7 @@ class Where extends Component {
             </Row>
             </Form>
         )
-    }
+    
 }
 
-export default Where;
+export default FormControl;
