@@ -1,12 +1,12 @@
 
-var axios = require("axios");
 
 import getFlightPrice from "./flightsHelper/skyscanPrice"
 // const result = dotenv.config()
 // console.log("env", process.env)
 const skyscanner = {
 
-getPrice : getFlightPrice()
+getPrice : getFlightPrice
+
 // function (req,res) {
 
 // var options = {
