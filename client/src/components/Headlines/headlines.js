@@ -1,10 +1,23 @@
 import React, { Component } from "react";
 import Card from 'react-bootstrap/Card';
+import API from '../../utils/API.js';
 // import "./style.css";
 class Headlines extends Component {
     // Setting the component's initial state
     state = {
 
+    };
+
+    loadState= () =>  {
+        console.log("?");
+        API.getState()
+          .then(res => 
+            console.log(res.data)
+          )
+          .catch(err => console.log(err));
+      };
+    componentDidMount=()=> {
+        this.loadState()
     };
     render() {
         return (
