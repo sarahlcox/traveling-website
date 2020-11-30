@@ -4,7 +4,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 // import "./style.css";
-class Where extends Component {
+class FormControl extends Component {
     // Setting the component's initial state
     state = {
 
@@ -30,4 +30,4 @@ class Where extends Component {
     }
 }
 
-export default Where;
+export default FormControl;
