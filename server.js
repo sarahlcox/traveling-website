@@ -4,12 +4,13 @@ const path = require("path");
 const PORT = process.env.PORT || 3001;
 const app = express();
 const routes = require("./routes");
-const bodyParser = require('body-parser')
+const bodyParser = require('body-parser');
 const mongoose = require("mongoose");
-const passport = require("passport")
+const passport = require("passport");
+const cors = require("cors");
 
 const users = require("./routes/api/users")
-
+app.use(cors());
 app.use(bodyParser.json());
 
 app.use(bodyParser.urlencoded({ extended: true }));

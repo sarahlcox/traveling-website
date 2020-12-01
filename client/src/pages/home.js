@@ -28,6 +28,7 @@ function Home () {
       };
       function handleFormSubmit(event) {
         event.preventDefault();
+        console.log("running?");
         // if (formObject.city1 && formObject.city2 ) {
             API.getFlight({
                 city1: formObject.city1,
