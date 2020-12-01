@@ -53,9 +53,12 @@ function Home () {
             handleInputChange = {handleInputChange}
             handleFormSubmit = {handleFormSubmit}
             />
-            {!(flightState.flightData === {}) && <CardLayout 
+            {/*
+                I recommend moving this ternary from the card layout wrapper to each individual cards rendering.
+            */}
+            {(flightState.flightData.price) ? (<CardLayout 
             flightState = {flightState}
-            />}
+            />) : ( null)}
             
         </div>
     )
