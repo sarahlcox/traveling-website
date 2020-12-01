@@ -2,6 +2,6 @@ const router = require("express").Router();
 const hotelController = require("../../controllers/hotelController");
 
 router.route("/")
-  .get(hotelController.getHotels)
+  .post(hotelController.getHotels)
 
 module.exports = router;
