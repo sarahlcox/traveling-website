@@ -4,17 +4,33 @@ const path = require("path");
 const PORT = process.env.PORT || 3001;
 const app = express();
 const routes = require("./routes");
-var bodyParser = require('body-parser')
+const bodyParser = require('body-parser')
+const mongoose = require("mongoose");
+const passport = require("passport")
+
+const users = require("./routes/api/users")
 
 app.use(bodyParser.json());
+
 app.use(bodyParser.urlencoded({ extended: true }));
 
+// DB Config
+const db = require("./config/keys").mongoURI;
+// Connect to MongoDB
+mongoose
+  .connect(
+    db,
+    { useNewUrlParser: true }
+  )
+  .then(() => console.log("MongoDB successfully connected"))
+  .catch(err => console.log(err));
 
-// Testing to see push to main
-
-// test comment
-
-// test #2
+// Passport middleware
+app.use(passport.initialize());
+// Passport config
+require("./config/passport")(passport);
+// Routes
+app.use("/api/users", users);
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
