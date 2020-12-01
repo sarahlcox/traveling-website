@@ -11,8 +11,8 @@ function getLocationID(city){
     }
   };
   
-  axios.request(options).then(function (response) {
-    console.log("data" ,response.data.suggestions[0].entities[0].destinationId);
+  return axios.request(options).then(function (response) {
+    return response.data.suggestions[0].entities[0].destinationId;
   }).catch(function (error) {
     console.error(error);
   });

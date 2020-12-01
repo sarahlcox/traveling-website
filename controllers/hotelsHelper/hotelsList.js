@@ -22,8 +22,8 @@ async function getHotelList(city){
     }
   };
   
-  axios.request(options).then(function (response) {
-    // console.log("axios response" ,response.data);
+  return axios.request(options).then(function (response) {
+    return response.data.data.body.searchResults.results;
   }).catch(function (error) {
     console.error(error);
   });
