@@ -56,9 +56,10 @@ function Home () {
             {/*
                 I recommend moving this ternary from the card layout wrapper to each individual cards rendering.
             */}
-            {(flightState.flightData.price) ? (<CardLayout 
+            <CardLayout />
+            {/* {(flightState.flightData.price) ? (<CardLayout 
             flightState = {flightState}
-            />) : ( null)}
+            />) : ( null)} */}
             
         </div>
     )
