@@ -23,7 +23,7 @@ async function getHotelList(city){
   };
   
   axios.request(options).then(function (response) {
-    console.log("Chicago Down Town" ,response.data.data.body.searchResults.results);
+    // console.log("axios response" ,response.data);
   }).catch(function (error) {
     console.error(error);
   });

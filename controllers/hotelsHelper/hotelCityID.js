@@ -1,19 +1,21 @@
 const axios = require("axios").default;
 
-async function getLocationID(city){
+function getLocationID(city){
   var options = {
     method: 'GET',
     url: 'https://hotels4.p.rapidapi.com/locations/search',
-    params: {query: city, locale: 'en_US'},
+    params: {query: 'new york', locale: 'en_US'},
     headers: {
       'x-rapidapi-key': process.env.HOTELS_APIKEY,
       'x-rapidapi-host': 'hotels4.p.rapidapi.com'
     }
   };
-
-  var hotelReq = await axios.request(options);
-  console.log("ID info", hotelReq.data.suggestions[0].entities[1]);
-  return hotelReq.data.suggestions[0].entities[1].destinationId;
+  
+  axios.request(options).then(function (response) {
+    console.log("data" ,response.data.suggestions[0].entities[0].destinationId);
+  }).catch(function (error) {
+    console.error(error);
+  });
 }
 
 module.exports = getLocationID;
