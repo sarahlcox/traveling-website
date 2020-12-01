@@ -8,6 +8,9 @@ function Home () {
 
     const [formObject, setFormObject] = React.useState({})
     const [flightState, setFlightState] = React.useState({})
+    const [hotelState, setHotelState] = React.useState({
+        hotelsData: []
+    })
 
     React.useEffect(()=>{
         //make state and pass the state instead of city names & date
@@ -19,7 +22,7 @@ function Home () {
             console.log("FE res", res)
         })
 
-        API.getHotels("New York").then(resHotels => {
+        API.getHotels({city2: "New York"}).then(resHotels => {
             console.log("Hotels res", resHotels);
         })
     },[])
@@ -44,6 +47,20 @@ function Home () {
             })
             .catch(err => console.log(err));
         // }
+        API.getHotels({city2: "New York"}).then(response => {
+            response.data.sort((a,b) => b.starRating - a.starRating);
+            const hotelsList = response.data
+                .slice(0, 10).map(hotel => {
+                    return {
+                        name: hotel.name,
+                        star: hotel.starRating,
+                        image: hotel.thumbnailUrl,
+                        price: hotel.ratePlan.price.current
+                    }
+                });
+            console.log("Hotels", hotelsList);
+            setHotelState({...hotelState, hotelsData: hotelsList})
+        }).catch(err => console.log(err));
     };
     return (
         <div>
