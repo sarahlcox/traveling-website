@@ -17,9 +17,11 @@ async function getFlightPrice(city1, city2, departureDate){
     };
 
     return axios.request(options).then(function (response) {
+        console.log(`we have successfully looked up the flights`)
         // console.log("sky2L20", response.data);
         return response;
     }).catch(function (error) {
+        console.log(`theres been an error in the skyscanPrice.js`)
         console.error(error);
         // return error;
     });

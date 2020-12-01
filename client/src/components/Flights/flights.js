@@ -2,18 +2,18 @@ import React, { Component } from "react";
 import Card from 'react-bootstrap/Card';
 // import "./style.css";
 function Flights(props){
-
+    // console.log("card test",props.flightInfo.flightData)
     return (
             <Card className="single-card" >
                 {/* <Card.Img variant="top" src="holder.js/100px160" /> */}
                 <Card.Body>
                 <Card.Title>Flights</Card.Title>
                 <Card.Text>
-                   {console.log("card test",props.flightInfo.flightData.price[0].MinPrice)}
-                  Min Price: ${props.flightInfo.flightData.price[0].MinPrice}
+                   {console.log("card test",props.flightInfo.flightData.price)}
+                  {/* Min Price: ${props.flightInfo.price[0].MinPrice} */}
                 </Card.Text>
                 <Card.Text>
-                  Flight Date: {props.flightInfo.flightData.price[0].OutboundLeg.DepartureDate}
+                  {/* Flight Date: {props.flightInfo.flightData.price[0].OutboundLeg.DepartureDate} */}
                 </Card.Text>
                 </Card.Body>
                 <Card.Footer>

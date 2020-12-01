@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 import setAuthToken from "./utils/setAuthToken";
@@ -38,8 +38,8 @@ if (localStorage.jwtToken) {
 }
 
 
-class App extends Component {
-  render() {
+function App () {
+  
     return (
       <Provider store={store}>
         <Router>
@@ -55,7 +55,6 @@ class App extends Component {
         </Router>
       </Provider>
     );
-  }
 }
 
 export default App;

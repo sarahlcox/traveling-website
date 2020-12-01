@@ -12,7 +12,7 @@ var options = {
 
 var axiosreq = await axios.request(options);
 
-    console.log("State Function" ,axiosreq.data);
+    // console.log("State Function" ,axiosreq.data);
     return axiosreq.data;
 
 }

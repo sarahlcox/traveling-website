@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import CardDeck from 'react-bootstrap/CardDeck';
 import Headlines from '../Headlines/headlines.js';
 import Flights from '../Flights/flights.js';
@@ -8,8 +8,8 @@ import './cardlayout.css';
 
 // import "./style.css";
 function CardLayout (props) {
-
-   
+if(props.flightState.flightData.price){
+   console.log( "card Props", props.flightState.flightData.price)}
 return (
     <div className="card-cont">
         <CardDeck>

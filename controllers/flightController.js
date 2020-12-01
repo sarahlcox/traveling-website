@@ -7,8 +7,12 @@ var getFlightPrice = require("./flightsHelper/skyscanPrice")
 const skyscanner = {
 
 getPrice: async function (req, res){
-    console.log("my Req", req.body);
+    // console.log("my Req", req.body);
     const testPrice = await getFlightPrice(req.body.city1, req.body.city2, req.body.outboundDate)
+    // .catch(function (error) {
+    //     console.error(error);
+    //     // return error;
+    // })
     // console.log("Testing Price", testPrice.data)
     res.json(testPrice.data)
 }

@@ -7,18 +7,20 @@ import API from "../utils/API"
 function Home () {
 
     const [formObject, setFormObject] = React.useState({})
-    const [flightState, setFlightState] = React.useState({})
+    const [flightState, setFlightState] = React.useState({
+        flightData: {}
+    })
 
-    React.useEffect(()=>{
-        //make state and pass the state instead of city names & date
-        API.getFlight({
-            city1: "Chicago",
-            city2: "New York",
-            outboundDate: "test"
-        }).then(res =>{
-            // console.log("FE res", res)
-        })
-    },[])
+    // React.useEffect(()=>{
+    //     //make state and pass the state instead of city names & date
+    //     API.getFlight({
+    //         city1: "Chicago",
+    //         city2: "New York",
+    //         outboundDate: "test"
+    //     }).then(res =>{
+    //         // console.log("FE res", res)
+    //     })
+    // },[])
     function handleInputChange(event) {
         const { name, value } = event.target;
         setFormObject({...formObject, [name]: value})
@@ -33,7 +35,7 @@ function Home () {
                 outboundDate: formObject.outboundDate
             })
             .then(res => {
-                console.log("FS", res.data)
+                // console.log("FS", res.data)
                 setFlightState({...flightState, flightData: {
                     //departure date is res.data.Quotes[0].OutboundLeg.DepartureDate
                     price: res.data.Quotes,
@@ -51,9 +53,10 @@ function Home () {
             handleInputChange = {handleInputChange}
             handleFormSubmit = {handleFormSubmit}
             />
-            <CardLayout 
+            {!(flightState.flightData === {}) && <CardLayout 
             flightState = {flightState}
-            />
+            />}
+            
         </div>
     )
 }
