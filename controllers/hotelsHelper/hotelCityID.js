@@ -4,7 +4,7 @@ function getLocationID(city){
   var options = {
     method: 'GET',
     url: 'https://hotels4.p.rapidapi.com/locations/search',
-    params: {query: 'new york', locale: 'en_US'},
+    params: {query: city, locale: 'en_US'},
     headers: {
       'x-rapidapi-key': process.env.HOTELS_APIKEY,
       'x-rapidapi-host': 'hotels4.p.rapidapi.com'
