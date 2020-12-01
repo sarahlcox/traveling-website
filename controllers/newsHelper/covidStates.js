@@ -1,6 +1,6 @@
 var axios = require("axios").default;
 async function getState(){
-  console.log("covid state?");
+  // console.log("covid state?");
 var options = {
   method: 'GET',
   url: 'https://covidtracking.com/api/states',
@@ -12,7 +12,7 @@ var options = {
 
 var axiosreq = await axios.request(options);
 
-    console.log("State Function" ,axiosreq.data);
+    // console.log("State Function" ,axiosreq.data);
     return axiosreq.data;
 
 }

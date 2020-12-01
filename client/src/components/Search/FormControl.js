@@ -29,7 +29,18 @@ function FormControl(props){
                 />
                 </Col>
                 <Col>
-                <Form.Control placeholder="Last name" />
+                <Form.Control
+                 placeholder="Destination City" 
+                 onChange={props.handleInputChange}
+                 name="city2"
+                />
+                </Col>
+                <Col>
+                <Form.Control
+                 placeholder="Departure Date" 
+                 onChange={props.handleInputChange}
+                 name="outboundDate"
+                />
                 </Col>
                 <Col>
                 <Button 
@@ -37,7 +48,7 @@ function FormControl(props){
                  type="submit"
                  onClick = {props.handleFormSubmit}
                  >
-                    Submit
+                    Search
                 </Button>
                 </Col>
             </Row>

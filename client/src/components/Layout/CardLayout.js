@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import CardDeck from 'react-bootstrap/CardDeck';
 import Headlines from '../Headlines/headlines.js';
 import Flights from '../Flights/flights.js';
@@ -7,25 +7,22 @@ import Attractions from '../Attractions/attractions.js';
 import './cardlayout.css';
 
 // import "./style.css";
-class CardLayout extends Component {
-    // Setting the component's initial state
-    state = {
-
-    };
-    render() {
-        return (
-            <div className="card-cont">
-                <CardDeck>
-                    <Flights />
-                    <Headlines />
-                </CardDeck>
-                <CardDeck>
-                    <Hotels />
-                    <Attractions />
-                </CardDeck>
-        </div>
-        )
-    }
+function CardLayout (props) {
+if(props.flightState.flightData.price){
+   console.log( "card Props", props.flightState.flightData.price)}
+return (
+    <div className="card-cont">
+        <CardDeck>
+            <Flights flightInfo = {props.flightState} />
+            <Headlines />
+        </CardDeck>
+        <CardDeck>
+            <Hotels />
+            <Attractions />
+        </CardDeck>
+</div>
+)
+    
 }
 
 export default CardLayout;

@@ -1,11 +1,11 @@
 let getCityID = require("./skyscanID") 
 
 var axios = require("axios").default;
-async function getFlightPrice(city1, city2, outboundDate){
+async function getFlightPrice(city1, city2, departureDate){
     var cityOne = await getCityID(city1);
     var cityTwo = await getCityID(city2);
-    console.log("Should be city ID",city1)
-    outboundDate = "2020-12-01"
+    // console.log("Should be city ID",city1)
+    var outboundDate = departureDate
     var options = {
     method: 'GET',
     url: "https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/US/USD/en-US/"+cityOne+"/"+cityTwo+"/"+ outboundDate,
@@ -17,9 +17,11 @@ async function getFlightPrice(city1, city2, outboundDate){
     };
 
     return axios.request(options).then(function (response) {
+        console.log(`we have successfully looked up the flights`)
         // console.log("sky2L20", response.data);
         return response;
     }).catch(function (error) {
+        console.log(`theres been an error in the skyscanPrice.js`)
         console.error(error);
         // return error;
     });
