@@ -18,13 +18,17 @@ function Home () {
         }).then(res =>{
             console.log("FE res", res)
         })
+
+        API.getHotels("New York").then(resHotels => {
+            console.log("Hotels res", resHotels);
+        })
     },[])
     function handleInputChange(event) {
         const { name, value } = event.target;
         setFormObject({...formObject, [name]: value})
         console.log("testing... working")
-      };
-      function handleFormSubmit(event) {
+    };
+    function handleFormSubmit(event) {
         event.preventDefault();
         // if (formObject.city1 && formObject.city2 ) {
             API.getFlight({
@@ -40,7 +44,7 @@ function Home () {
             })
             .catch(err => console.log(err));
         // }
-      };
+    };
     return (
         <div>
             <SearchContainer 
