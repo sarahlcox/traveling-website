@@ -1,6 +1,5 @@
 const router = require("express").Router();
 const flightController = require("../../controllers/flightController");
-console.log(flightController)
 // Matches with "/api/books"
 router.route("/")
   .post(flightController.getPrice)
