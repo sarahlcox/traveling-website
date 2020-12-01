@@ -16,26 +16,30 @@ function Home () {
             city2: "New York",
             outboundDate: "test"
         }).then(res =>{
-            console.log("FE res", res)
+            // console.log("FE res", res)
         })
     },[])
     function handleInputChange(event) {
         const { name, value } = event.target;
         setFormObject({...formObject, [name]: value})
-        console.log("testing... working")
+        // console.log("testing... working")
       };
       function handleFormSubmit(event) {
         event.preventDefault();
         // if (formObject.city1 && formObject.city2 ) {
             API.getFlight({
                 city1: formObject.city1,
-                city2: "New York",
-                outboundDate: "test"
+                city2: formObject.city2,
+                outboundDate: formObject.outboundDate
             })
             .then(res => {
                 console.log("FS", res.data)
                 setFlightState({...flightState, flightData: {
-                    price: res.data
+                    //departure date is res.data.Quotes[0].OutboundLeg.DepartureDate
+                    price: res.data.Quotes,
+                    airports: res.data.Places,
+                    carriers: res.data.Carriers
+                    
                 } })
             })
             .catch(err => console.log(err));
