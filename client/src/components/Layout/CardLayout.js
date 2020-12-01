@@ -7,25 +7,22 @@ import Attractions from '../Attractions/attractions.js';
 import './cardlayout.css';
 
 // import "./style.css";
-class CardLayout extends Component {
-    // Setting the component's initial state
-    state = {
+function CardLayout (props) {
 
-    };
-    render() {
-        return (
-            <div className="card-cont">
-                <CardDeck>
-                    <Flights />
-                    <Headlines />
-                </CardDeck>
-                <CardDeck>
-                    <Hotels />
-                    <Attractions />
-                </CardDeck>
-        </div>
-        )
-    }
+   
+return (
+    <div className="card-cont">
+        <CardDeck>
+            <Flights flightInfo = {props.flightState} />
+            <Headlines />
+        </CardDeck>
+        <CardDeck>
+            <Hotels />
+            <Attractions />
+        </CardDeck>
+</div>
+)
+    
 }
 
 export default CardLayout;
