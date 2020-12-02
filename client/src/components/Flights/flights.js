@@ -12,10 +12,10 @@ function Flights(props) {
                 <Card.Title>Flights</Card.Title>
                 <Card.Text>
                     {/* {console.log("card test",props.flightInfo.flightData.price)} */}
-                    {/* Min Price: ${props.flightInfo.price[0].MinPrice} */}
+                    Min Price: ${props.flightInfo.flightData.price[0].MinPrice}
                 </Card.Text>
                 <Card.Text>
-                    {/* Flight Date: {props.flightInfo.flightData.price[0].OutboundLeg.DepartureDate} */}
+                    Flight Date: {props.flightInfo.flightData.price[0].OutboundLeg.DepartureDate}
                 </Card.Text>
             </Card.Body>
             <Card.Footer>
