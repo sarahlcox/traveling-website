@@ -11,6 +11,9 @@ function Home () {
     const [flightState, setFlightState] = React.useState({
         flightData: {}
     })
+    const [hotelState, setHotelState] = React.useState({
+        hotelsData: []
+    })
 
     function handleInputChange(event) {
         const { name, value } = event.target;
@@ -38,7 +41,20 @@ function Home () {
             })
             .catch(err => console.log(err));
         // }
-      };
+        API.getHotels({city2: formObject.city2}).then(response => {
+            response.data.sort((a,b) => b.starRating - a.starRating);
+            const hotelsList = response.data
+                .slice(0, 10).map(hotel => {
+                    return {
+                        name: hotel.name,
+                        star: hotel.starRating,
+                        image: hotel.thumbnailUrl,
+                        price: hotel.ratePlan.price.current
+                    }
+                });
+            setHotelState({...hotelState, hotelsData: hotelsList});
+        }).catch(err => console.log(err));
+    };
     return (
         <div>
             <SearchContainer 
@@ -50,6 +66,7 @@ function Home () {
             */}
             {(flightState.flightData.price) ? (<CardLayout 
             flightState = {flightState}
+            hotelState = {hotelState}
             />) : <HomeCard />}
             
         </div>
