@@ -1,23 +1,23 @@
 var axios = require("axios").default;
-async function getState(){
-  // console.log("covid state?");
-var options = {
-  method: 'GET',
-  url: 'https://covidtracking.com/api/states',
-//   headers: {
-//     'x-rapidapi-key': process.env.SKYSCANNER_APIKEY,
-//     'x-rapidapi-host': 'skyscanner-skyscanner-flight-search-v1.p.rapidapi.com'
-//   }
-};
-
-var axiosreq = await axios.request(options);
-
-    // console.log("State Function" ,axiosreq.data);
-    return axiosreq.data;
-
+function getState(){
+  console.log("covid state?");
+  axios
+  .get('https://covidtracking.com/api/states')
+  .then (results => {
+    console.log("results",results);
+    return results} 
+    )
+    .catch(err => res.status(422).json(err));
 }
+// var options = {
+//   method: 'GET',
+//   url: 'https://covidtracking.com/api/states',
+// };
 
-// getCityID("Chicago")
+// var axiosreq = await axios.request(options);
+// console.log("????????");
+//     // console.log("State Function" ,axiosreq.data);
+//     return axiosreq.data;
+// }
 
 module.exports = getState;
-// getCityID("Evanston");

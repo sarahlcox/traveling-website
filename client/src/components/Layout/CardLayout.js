@@ -8,12 +8,13 @@ import './cardlayout.css';
 
 // import "./style.css";
 function CardLayout (props) {
-if(props.flightState.flightData.price){
-   console.log( "card Props", props.flightState.flightData.price)}
+// if(props.flightState.flightData.price){
+//    console.log( "card Props", props.flightState.flightData.price)}
 return (
     <div className="card-cont">
         <CardDeck>
-            <Flights flightInfo = {props.flightState} />
+        {(props.flightState.flightData.price) ? 
+            <Flights flightInfo = {props.flightState} /> : <div>No Info</div>}
             <Headlines />
         </CardDeck>
         <CardDeck>

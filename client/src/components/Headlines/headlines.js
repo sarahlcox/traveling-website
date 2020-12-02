@@ -12,13 +12,13 @@ class Headlines extends Component {
         console.log("?");
         API.getState()
           .then(res => 
-            console.log(res.data)
+            console.log("front end results", res.data)
           )
           .catch(err => console.log(err));
       };
-    componentDidMount=()=> {
-        this.loadState()
-    };
+    // componentDidMount=()=> {
+    //     this.loadState()
+    // };
     render() {
         return (
                 <Card className="single-card" >
@@ -28,6 +28,7 @@ class Headlines extends Component {
                     <Card.Text>
                         This card has supporting text below as a natural lead-in to additional
                         content.{' '}
+                        <button onClick={this.loadState}>Click</button>
                     </Card.Text>
                     </Card.Body>
                     <Card.Footer>

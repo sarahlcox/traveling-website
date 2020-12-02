@@ -4,8 +4,8 @@ var axios = require("axios");
 var getState = require("./newsHelper/covidStates")
 // const result = dotenv.config()
 // console.log("env", process.env)
+console.log(getState);
 const newsController = {
-
 getNews : getState
 
 
