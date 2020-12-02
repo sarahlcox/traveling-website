@@ -49,7 +49,7 @@ function Home () {
             })
             .catch(err => console.log(err));
         // }
-        API.getHotels({city2: "New York"}).then(response => {
+        API.getHotels({city2: formObject.city2}).then(response => {
             response.data.sort((a,b) => b.starRating - a.starRating);
             const hotelsList = response.data
                 .slice(0, 10).map(hotel => {
@@ -60,8 +60,7 @@ function Home () {
                         price: hotel.ratePlan.price.current
                     }
                 });
-            console.log("Hotels", hotelsList);
-            setHotelState({...hotelState, hotelsData: hotelsList})
+            setHotelState({...hotelState, hotelsData: hotelsList});
         }).catch(err => console.log(err));
     };
     return (
@@ -75,6 +74,7 @@ function Home () {
             */}
             {(flightState.flightData.price) ? (<CardLayout 
             flightState = {flightState}
+            hotelState = {hotelState}
             />) : ( null)}
             
         </div>
