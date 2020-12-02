@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export default {
-  // Gets all books
+  // Gets all data
     getState: function() {
         console.log("front end api.js getstate");
         return axios.get("/api/news/get")
