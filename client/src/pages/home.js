@@ -1,7 +1,8 @@
 import React from 'react';
 import SearchContainer from '../components/Search/SearchContainer.js';
 import CardLayout from '../components/Layout/CardLayout.js';
-import API from "../utils/API"
+import API from "../utils/API";
+import HomeCard from "../components/Layout/HomeCard.js";
 
  
 function Home () {
@@ -11,16 +12,6 @@ function Home () {
         flightData: {}
     })
 
-    // React.useEffect(()=>{
-    //     //make state and pass the state instead of city names & date
-    //     API.getFlight({
-    //         city1: "Chicago",
-    //         city2: "New York",
-    //         outboundDate: "test"
-    //     }).then(res =>{
-    //         // console.log("FE res", res)
-    //     })
-    // },[])
     function handleInputChange(event) {
         const { name, value } = event.target;
         setFormObject({...formObject, [name]: value})
@@ -28,6 +19,7 @@ function Home () {
       };
       function handleFormSubmit(event) {
         event.preventDefault();
+        console.log("running?");
         // if (formObject.city1 && formObject.city2 ) {
             API.getFlight({
                 city1: formObject.city1,
@@ -58,7 +50,7 @@ function Home () {
             */}
             {(flightState.flightData.price) ? (<CardLayout 
             flightState = {flightState}
-            />) : ( null)}
+            />) : <HomeCard />}
             
         </div>
     )

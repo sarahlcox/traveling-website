@@ -3,7 +3,8 @@ import axios from "axios";
 export default {
   // Gets all books
     getState: function() {
-        return axios.get("/api/news")
+        console.log("front end api.js getstate");
+        return axios.get("/api/news/get")
     },
     getFlight: function(flightInput){
       console.log("my FI", flightInput)
