@@ -11,9 +11,7 @@ function Home () {
     const [flightState, setFlightState] = React.useState({
         flightData: {}
     })
-    const [hotelState, setHotelState] = React.useState({
-        hotelsData: []
-    })
+    const [hotelState, setHotelState] = React.useState([])
 
     function handleInputChange(event) {
         const { name, value } = event.target;
@@ -52,7 +50,7 @@ function Home () {
                         price: hotel.ratePlan.price.current
                     }
                 });
-            setHotelState({...hotelState, hotelsData: hotelsList});
+            setHotelState(hotelsList);
         }).catch(err => console.log(err));
     };
     return (
@@ -64,11 +62,14 @@ function Home () {
             {/*
                 I recommend moving this ternary from the card layout wrapper to each individual cards rendering.
             */}
-            {(flightState.flightData.price) ? (<CardLayout 
+            {/* {(flightState.flightData.price || hotelState[0]) ? (<CardLayout 
             flightState = {flightState}
             hotelState = {hotelState}
-            />) : <HomeCard />}
-            
+            />) : <HomeCard />} */}
+            <CardLayout 
+            flightState={flightState}
+            hotelState={hotelState}
+            />
         </div>
     )
 }

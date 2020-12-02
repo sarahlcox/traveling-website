@@ -6,12 +6,10 @@ import "./Hotels.css";
 function Hotels(props) {
     return (
             <Card className="single-card">
-                {/* <Card.Img variant="top" src="holder.js/100px160" /> */}
                 <Card.Body>
                 <Card.Title>Top Places to Stay</Card.Title>
                 <Card.Text>
-                    {(props.hotelInfo.hotelsData === []) ? "Please enter in a destination city" :
-                    (<Table striped bordered responsive>
+                    <Table striped bordered responsive>
                         <thead>
                             <tr>
                                 <th></th>
@@ -21,9 +19,9 @@ function Hotels(props) {
                             </tr>
                         </thead>
                         <tbody>
-                            {props.hotelInfo.hotelsData.map(hotel => {
+                            {props.hotelInfo.map(hotel => {
                                 return (
-                                    <tr key={props.hotelInfo.hotelsData.indexOf(hotel)} >
+                                    <tr key={props.hotelInfo.indexOf(hotel)} >
                                         <td><img src={hotel.image} alt={hotel.name} /></td>
                                         <td>{hotel.name}</td>
                                         <td>{hotel.price}</td>
@@ -32,7 +30,7 @@ function Hotels(props) {
                                 )
                             })}
                         </tbody>
-                    </Table>)}
+                    </Table>
                 </Card.Text>
                 </Card.Body>
                 <Card.Footer>
