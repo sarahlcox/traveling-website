@@ -17,7 +17,7 @@ return (
             <Headlines />
         </CardDeck>
         <CardDeck>
-            <Hotels />
+            <Hotels hotelInfo = {props.hotelState} />
             <Attractions />
         </CardDeck>
 </div>
