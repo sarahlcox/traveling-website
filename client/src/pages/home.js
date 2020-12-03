@@ -118,14 +118,12 @@ function myTest(test){
             setHotelState(hotelsList);
         }).catch(err => console.log(err));
 
-    }
-
-
-    // console.log("flightSate:",flightState)
-    // if(flightState.Places){
-    //     setPlacesState(flightState)
-    // }
-    // console.log(placesState)
+        // console.log(formObject.city2);
+        // console.log({city2: formObject.city2})
+        API.getAttractions(formObject.city2).then(response => {
+            // console.log("calling attractions API",response);
+        })
+    };
     return (
         <div>
             <SearchContainer

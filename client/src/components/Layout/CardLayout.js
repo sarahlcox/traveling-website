@@ -11,12 +11,13 @@ import './cardlayout.css';
 function CardLayout (props) {
 // if(props.flightState.flightData.price){
 //    console.log( "card Props", props.flightState.flightData.price)}
+// console.log("news state?", props.newsState);
 return (
     <div className="card-cont">
         <CardDeck>
             {(props.flightState.Quotes) ? 
             <Flights flightInfo = {props.flightState} /> : <EmptyCard info={"Flight"}/>}
-            {(props.newsState[0]) ? 
+            {(props.newsState.getInfo) ? 
             <Headlines newsInfo = {props.newsState} /> : <EmptyCard info={"News"}/>}        
         </CardDeck>
         <CardDeck>
