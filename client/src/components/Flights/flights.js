@@ -55,7 +55,7 @@ function Flights(props) {
                             Direct
                         </Accordion.Toggle>
                         <Accordion.Collapse eventKey="0">
-                            <Card.Body>{printDirectPrice(props.flightInfo.price, props.flightInfo.carriers, props.flightInfo.airports)}</Card.Body>
+                            <Card.Body>{printDirectPrice(props.flightInfo.Quotes, props.flightInfo.Carriers, props.placesState)}</Card.Body>
                         </Accordion.Collapse>
                     </Card>
                     <Card>
