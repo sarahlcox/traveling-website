@@ -1,4 +1,4 @@
-const apiKey = "5ae2e3f221c38a28845f05b6b35402875d65b75dc7b74901239bac9b";
+const apiKey = process.env.ATTRACTIONS_APIKEY;
 const fetch = require("node-fetch");
 
 
