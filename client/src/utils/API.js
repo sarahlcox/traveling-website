@@ -2,9 +2,9 @@ import axios from "axios";
 
 export default {
   // Gets all data
-    getState: function() {
+    getState: function(stateInput) {
         console.log("front end api.js getstate");
-        return axios.get("/api/news/get")
+        return axios.get("/api/news/" + stateInput)
     },
     getFlight: function(flightInput){
       console.log("my FI", flightInput)

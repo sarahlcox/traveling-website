@@ -12,7 +12,7 @@ function Home () {
         flightData: {}
     })
     const [hotelState, setHotelState] = React.useState([])
-
+    const [newsState, setNewsState] = React.useState([])
     function handleInputChange(event) {
         const { name, value } = event.target;
         setFormObject({...formObject, [name]: value})
@@ -39,6 +39,13 @@ function Home () {
             })
             .catch(err => console.log(err));
         // }
+        // get covid info 
+        API.getState(formObject.stateCode)
+        .then(res => {
+            setNewsState(res.data);
+        })
+        .catch(err => console.log(err));
+        // get hotels info
         API.getHotels({city2: formObject.city2}).then(response => {
             response.data.sort((a,b) => b.starRating - a.starRating);
             const hotelsList = response.data
@@ -69,6 +76,7 @@ function Home () {
             <CardLayout 
             flightState={flightState}
             hotelState={hotelState}
+            newsState={newsState}
             />
         </div>
     )

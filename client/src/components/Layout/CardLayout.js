@@ -16,7 +16,8 @@ return (
         <CardDeck>
             {(props.flightState.flightData.price) ? 
             <Flights flightInfo = {props.flightState} /> : <EmptyCard info={"Flight"}/>}
-            <Headlines />
+            {(props.newsState[0]) ? 
+            <Headlines newsInfo = {props.newsState} /> : <EmptyCard info={"News"}/>}        
         </CardDeck>
         <CardDeck>
             {(props.hotelState[0]) ? 

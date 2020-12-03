@@ -1,8 +1,7 @@
 const router = require("express").Router();
 const newsController = require("../../controllers/newsController");
-console.log("this is backend news.js",newsController);
 // Matches with "/api/books"
-router.route("/get")
+router.route("/:stateCode")
   .get(newsController.getNews)
 //   .post(flightController.create);
 
