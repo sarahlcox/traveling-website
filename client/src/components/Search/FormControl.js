@@ -37,6 +37,13 @@ function FormControl(props){
                 </Col>
                 <Col>
                 <Form.Control
+                 placeholder="Destination State Code" 
+                 onChange={props.handleInputChange}
+                 name="stateCode"
+                />
+                </Col>
+                <Col>
+                <Form.Control
                  placeholder="Departure Date" 
                  onChange={props.handleInputChange}
                  name="outboundDate"
