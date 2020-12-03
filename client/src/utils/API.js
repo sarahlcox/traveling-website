@@ -7,7 +7,7 @@ export default {
         return axios.get("/api/news/get")
     },
     getFlight: function(flightInput){
-      console.log("my FI", flightInput)
+      // console.log("my FI", flightInput)
       return axios.post("/api/flights", flightInput)
     }
 //   getBooks: function() {

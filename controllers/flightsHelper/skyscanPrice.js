@@ -11,7 +11,8 @@ async function getFlightPrice(city1, city2, departureDate){
     url: "https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/US/USD/en-US/"+cityOne+"/"+cityTwo+"/"+ outboundDate,
     
     headers: {
-        'x-rapidapi-key': process.env.SKYSCANNER_APIKEY,
+        // 'x-rapidapi-key': process.env.SKYSCANNER_APIKEY,
+        'x-rapidapi-key': "663155aaa3msh97674257769b941p1a3819jsn261b8a0453f2",
         'x-rapidapi-host': 'skyscanner-skyscanner-flight-search-v1.p.rapidapi.com'
     }
     };
@@ -19,12 +20,12 @@ async function getFlightPrice(city1, city2, departureDate){
     return axios.request(options).then(function (response) {
         console.log(`we have successfully looked up the flights`)
         // console.log("sky2L20", response.data);
-        return response;
+        return response.data;
     }).catch(function (error) {
         console.log(`theres been an error in the skyscanPrice.js`)
         console.error(error);
         // return error;
     });
 }
-// getFlightPrice("Chicago", "New York", "2020-12-01").then(res => console.log("sky2L27", res.data))
+// getFlightPrice("Chicago", "New York", "2020-12-15").then(res => console.log("sky2L27", res.data))
 module.exports = getFlightPrice;

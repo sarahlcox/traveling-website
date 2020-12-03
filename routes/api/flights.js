@@ -2,6 +2,7 @@ const router = require("express").Router();
 const flightController = require("../../controllers/flightController");
 // Matches with "/api/books"
 router.route("/")
+// console.log("flightsjs in backend API", )
   .post(flightController.getPrice)
 //   .post(flightController.create);
 
