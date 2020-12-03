@@ -11,8 +11,8 @@ async function getFlightPrice(city1, city2, departureDate){
     url: "https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/US/USD/en-US/"+cityOne+"/"+cityTwo+"/"+ outboundDate,
     
     headers: {
-        // 'x-rapidapi-key': process.env.SKYSCANNER_APIKEY,
-        'x-rapidapi-key': "663155aaa3msh97674257769b941p1a3819jsn261b8a0453f2",
+        'x-rapidapi-key': process.env.SKYSCANNER_APIKEY,
+        
         'x-rapidapi-host': 'skyscanner-skyscanner-flight-search-v1.p.rapidapi.com'
     }
     };

@@ -17,12 +17,12 @@ function getCarrier(carrierID, getID){
 function getAp(placeID, getID){
     console.log(getID)
     let place = getID.filter(place =>{
-        if(place.PlaceId = placeID){
+        if(place.PlaceId == placeID){
             return place
         }
     })
     console.log(place)
-    return place.Name
+    return place[0].Name
 }
 function printDirectPrice(prices, carrierIds, airports) {
     let directPrice = prices.filter(price => {
@@ -55,7 +55,7 @@ function Flights(props) {
                             Direct
                         </Accordion.Toggle>
                         <Accordion.Collapse eventKey="0">
-                            <Card.Body>{printDirectPrice(props.flightInfo.Quotes, props.flightInfo.Carriers, props.placesState)}</Card.Body>
+                            <Card.Body>{printDirectPrice(props.flightInfo.Quotes, props.flightInfo.Carriers, props.flightInfo.Places)}</Card.Body>
                         </Accordion.Collapse>
                     </Card>
                     <Card>

@@ -15,6 +15,13 @@ function Home() {
     const [newsState, setNewsState] = React.useState([])
     const [placesState, setPlacesState]= React.useState([])
     
+    // [
+    // {Name: "New York Newark", Type: "Station", PlaceId: 50290, IataCode: "EWR", SkyscannerCode: "EWR"},
+    //  {Name: "Chicago O'Hare International", Type: "Station", PlaceId: 50290, IataCode: "ORD", SkyscannerCode: "ORD" },
+    //  {Name: "Chicago", Type: "City", PlaceId: 50290, SkyscannerCode: "CHIA", CityId: "CHIA" }
+    // ]
+    
+
 function myTest(test){
     console.log("testing test", test)
 }
@@ -22,11 +29,17 @@ function myTest(test){
         console.log("setting data...", data.data)
         setFlightState(
             {
-                // ...flightState,
+                ...flightState,
                 Quotes: data.data.Quotes,
                 Carriers: data.data.Carriers,
-                Places: data.data.Places
+                Places:  [
+                    {Name: "New York Newark", Type: "Station", PlaceId: 50290, IataCode: "EWR", SkyscannerCode: "EWR"},
+                     {Name: "Chicago O'Hare International", Type: "Station", PlaceId: 73076, IataCode: "ORD", SkyscannerCode: "ORD" },
+                     {Name: "Chicago", Type: "City", PlaceId: 2157761, SkyscannerCode: "CHIA", CityId: "CHIA" }
+                    ]
+                    
             }
+            
             //departure date is res.data.Quotes[0].OutboundLeg.DepartureDate
         //    {fd: data} 
         );
@@ -41,7 +54,7 @@ function myTest(test){
         setFormObject({ ...formObject, [name]: value })
 
     };
-    function handleFormSubmit(event) {
+    const handleFormSubmit = (event) => {
         event.preventDefault();
         console.log("running?");
 
@@ -57,6 +70,13 @@ function myTest(test){
             // changePlaceState(res);
           changeFlightState(res);
              })
+            //  .then(res =>{
+            //      console.log(flightState)
+            //     if(flightState.Places){
+            //         setPlacesState(flightState)
+            //     }
+            //     console.log("places state", placesState )
+            //  })
         .catch(err => console.log(err));
 
         // API.getFlight({
@@ -98,10 +118,6 @@ function myTest(test){
             setHotelState(hotelsList);
         }).catch(err => console.log(err));
 
-        if(flightState.Places){
-            setPlacesState(flightState)
-        }
-        console.log("places state" )
     }
 
 
@@ -119,7 +135,7 @@ function myTest(test){
        
             <CardLayout
                 flightState={flightState}
-                placeState = {placesState}
+                // placeState = {placesState}
                 hotelState={hotelState}
                 newsState={newsState}
             />

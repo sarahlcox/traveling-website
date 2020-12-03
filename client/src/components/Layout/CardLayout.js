@@ -15,7 +15,7 @@ return (
     <div className="card-cont">
         <CardDeck>
             {(props.flightState.Quotes) ? 
-            <Flights flightInfo = {props.flightState} placesState = {props.placeState} /> : <EmptyCard info={"Flight"}/>}
+            <Flights flightInfo = {props.flightState} /> : <EmptyCard info={"Flight"}/>}
             {(props.newsState[0]) ? 
             <Headlines newsInfo = {props.newsState} /> : <EmptyCard info={"News"}/>}        
         </CardDeck>
