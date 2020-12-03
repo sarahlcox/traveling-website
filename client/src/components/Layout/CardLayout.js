@@ -15,7 +15,7 @@ function CardLayout (props) {
 return (
     <div className="card-cont">
         <CardDeck>
-            {(props.flightState.flightData.price) ? 
+            {(props.flightState.Quotes) ? 
             <Flights flightInfo = {props.flightState} /> : <EmptyCard info={"Flight"}/>}
             {(props.newsState.getInfo) ? 
             <Headlines newsInfo = {props.newsState} /> : <EmptyCard info={"News"}/>}        

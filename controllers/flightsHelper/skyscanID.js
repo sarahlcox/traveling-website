@@ -6,6 +6,7 @@ var options = {
   params: {query: city},
   headers: {
     'x-rapidapi-key': process.env.SKYSCANNER_APIKEY,
+   
     'x-rapidapi-host': 'skyscanner-skyscanner-flight-search-v1.p.rapidapi.com'
   }
 };

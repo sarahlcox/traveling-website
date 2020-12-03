@@ -13,8 +13,8 @@ getPrice: async function (req, res){
     //     console.error(error);
     //     // return error;
     // })
-    // console.log("Testing Price", testPrice.data)
-    res.json(testPrice.data)
+    console.log("Testing Price", testPrice)
+    res.json(testPrice)
 }
 
 // function (req,res) {
