@@ -1,13 +1,10 @@
 var axios = require("axios");
+var getCovidData = require("./newsHelper/covidStates")
 
-// import getState from "./newsHelper/covidStates.js";
-var getState = require("./newsHelper/covidStates")
-// const result = dotenv.config()
-// console.log("env", process.env)
-console.log(getState);
 const newsController = {
-getNews : getState
-
-
+getNews : async function (req, res){
+    const covidData = await getCovidData(req.params.stateCode);
+    res.json(covidData)
+        }
 }
 module.exports = newsController;
