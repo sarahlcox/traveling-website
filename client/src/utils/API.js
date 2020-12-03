@@ -12,7 +12,10 @@ export default {
     },
     getHotels: function(hotelsInput) {
       return axios.post("/api/hotels", hotelsInput)
-    }
+    },
+    getAttractions: function (attractionsInput) {
+      return axios.get("/api/attractions", attractionsInput)
+    },
 //   getBooks: function() {
 //     return axios.get("/api/books");
 //   },
