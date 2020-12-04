@@ -51,7 +51,7 @@ function FormControl(props){
                 />
                 </Row>
                 <Row>
-                    <p>dd/mm/yy</p>
+                    <p>dd/mm/yyyy</p>
                 </Row>
                 </Col>
                 <Col>
