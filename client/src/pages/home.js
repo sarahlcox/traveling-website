@@ -72,7 +72,7 @@ function Home() {
         }).catch(err => console.log(err));
 
         API.getAttractions(formObject.city2).then(response => {
-            // console.log("calling attractions API",response);
+            console.log("calling attractions API",response.data);
         })
     };
     return (
