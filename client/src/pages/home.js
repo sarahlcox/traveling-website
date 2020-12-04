@@ -64,7 +64,7 @@ function Home() {
                         name: hotel.name,
                         star: hotel.starRating,
                         image: hotel.thumbnailUrl,
-                        price: (hotel.ratePlan) ? hotel.ratePlan.price.current : "Price Unavailable"
+                        price: (hotel.ratePlan) ? hotel.ratePlan.price.current : "N/A"
                     }
                     return hotelObject;
                 });
