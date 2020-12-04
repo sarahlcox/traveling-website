@@ -13,9 +13,6 @@ function Home() {
     const [hotelState, setHotelState] = React.useState([])
     const [newsState, setNewsState] = React.useState([])
 
-function myTest(test){
-    console.log("testing test", test)
-}
     function changeFlightState(data) {
         // console.log("setting data...", data.data)
         setFlightState(
@@ -53,11 +50,13 @@ function myTest(test){
         //get covid info
         API.getState(formObject.stateCode)
             .then(res => {
+                console.log("SL:",res.data);
                 setNewsState(res.data);
             })
             .catch(err => console.log(err));
         // get hotels info
-        API.getHotels(formObject.city2).then(response => {
+        API.getHotels({city2: formObject.city2}).then(response => {
+            // console.log("HS", response.data)
             response.data.sort((a, b) => b.starRating - a.starRating);
             const hotelsList = response.data
                 .slice(0, 10).map(hotel => {
@@ -75,6 +74,7 @@ function myTest(test){
             // console.log("calling attractions API",response);
         })
     };
+    console.log("NS", newsState)
     return (
         <div>
             <SearchContainer

@@ -24,10 +24,11 @@ async function getHotelList(city){
   };
   
   return axios.request(options).then(function (response) {
+    console.log("my hotels",response.data.data.body.searchResults.results[0])
     return response.data.data.body.searchResults.results;
   }).catch(function (error) {
     console.error(error);
   });
 }
-
+getHotelList("Chicago")
 module.exports = getHotelList;
