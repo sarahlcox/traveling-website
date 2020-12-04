@@ -8,30 +8,28 @@ function Hotels(props) {
             <Card className="single-card">
                 <Card.Body>
                 <Card.Title>Top Places to Stay</Card.Title>
-                <Card.Text>
-                    <Table striped bordered responsive>
-                        <thead>
-                            <tr>
-                                <th></th>
-                                <th>Hotel</th>
-                                <th>Rate</th>
-                                <th>Stars</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {props.hotelInfo.map(hotel => {
-                                return (
-                                    <tr key={props.hotelInfo.indexOf(hotel)} >
-                                        <td><img src={hotel.image} alt={hotel.name} /></td>
-                                        <td>{hotel.name}</td>
-                                        <td>{hotel.price}</td>
-                                        <td>{hotel.star}</td>
-                                    </tr>
-                                )
-                            })}
-                        </tbody>
-                    </Table>
-                </Card.Text>
+                <Table striped bordered responsive>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Hotel</th>
+                            <th>Rate</th>
+                            <th>Stars</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {props.hotelInfo.map(hotel => {
+                            return (
+                                <tr key={props.hotelInfo.indexOf(hotel)} >
+                                    <td><img src={hotel.image} alt={hotel.name} /></td>
+                                    <td>{hotel.name}</td>
+                                    <td>{hotel.price}</td>
+                                    <td>{hotel.star}</td>
+                                </tr>
+                            )
+                        })}
+                    </tbody>
+                </Table>
                 </Card.Body>
                 <Card.Footer>
                 <small className="text-muted">Last updated 3 mins ago</small>
