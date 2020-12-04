@@ -3,6 +3,12 @@ import SearchContainer from '../components/Search/SearchContainer.js';
 import CardLayout from '../components/Layout/CardLayout.js';
 import API from "../utils/API";
 
+function formatDate(date) {
+    let splitDate = date.split("/")
+    splitDate.reverse()
+    let formatedDate = splitDate.join("-");
+    return formatedDate
+}
 
 
 function Home() {
@@ -21,8 +27,8 @@ function Home() {
                 ...flightState,
                 Quotes: data.data.Quotes,
                 Carriers: data.data.Carriers,
-                Places:  data.data.Places
-                    
+                Places: data.data.Places
+
             }
         );
     }
@@ -35,28 +41,27 @@ function Home() {
     function handleFormSubmit(event) {
         event.preventDefault();
         console.log("running?");
-
         API.getFlight({
             city1: formObject.city1,
             city2: formObject.city2,
-            outboundDate: formObject.outboundDate
+            outboundDate: formatDate(formObject.outboundDate)
         })
-        .then(res => {
-            console.log("FS", res)
-          changeFlightState(res);
-             })
-        .catch(err => console.log(err));
+            .then(res => {
+                console.log("FS", res)
+                changeFlightState(res);
+            })
+            .catch(err => console.log(err));
 
 
         //get covid info
         API.getState(formObject.stateCode)
             .then(res => {
-                console.log("SL:",res.data);
+                console.log("SL:", res.data);
                 setNewsState(res.data);
             })
             .catch(err => console.log(err));
         // get hotels info
-        API.getHotels({city2: formObject.city2}).then(response => {
+        API.getHotels({ city2: formObject.city2 }).then(response => {
             // console.log("HS", response.data)
             response.data.sort((a, b) => b.starRating - a.starRating);
             const hotelsList = response.data
@@ -85,7 +90,7 @@ function Home() {
                 handleInputChange={handleInputChange}
                 handleFormSubmit={handleFormSubmit}
             />
-       
+
             <CardLayout
                 flightState={flightState}
                 hotelState={hotelState}
