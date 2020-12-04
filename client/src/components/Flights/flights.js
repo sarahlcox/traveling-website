@@ -14,14 +14,32 @@ function getCarrier(carrierID, getID){
    })
    return directCarrier[0].Name
 }
-function getAp(placeID, getID){
-    console.log(getID)
+function getSC(placeID, getID){
+    // console.log(getID)
     let place = getID.filter(place =>{
         if(place.PlaceId == placeID){
             return place
         }
     })
-    console.log(place)
+    // console.log(place)
+    return place[0].SkyscannerCode
+}
+function getSCU(placeID1,placeID2, getID, date){
+    let city1= getSC(placeID1, getID);
+    let city2= getSC(placeID2, getID);
+    let urlDate= formatDate(date)
+    let scURL= "https://www.skyscanner.com/transport/flights/"  + city1 + "/" + city2 + "/"+urlDate+"/?adultsv2=1&cabinclass=economy&childrenv2=&inboundaltsenabled=false&outboundaltsenabled=false&preferdirects=false&priceSourceId=&qp_prevCurrency=USD&qp_prevPrice=40&qp_prevProvider=ins_browse&rtn=0";
+    return scURL
+
+}
+function getAp(placeID, getID){
+    // console.log(getID)
+    let place = getID.filter(place =>{
+        if(place.PlaceId == placeID){
+            return place
+        }
+    })
+    // console.log(place)
     return place[0].Name
 }
 function printDirectPrice(prices, carrierIds, airports) {
@@ -29,35 +47,53 @@ function printDirectPrice(prices, carrierIds, airports) {
         // console.log("price", price)
         return price.Direct == true
     })
-    console.log("should be direct",directPrice)
+    // console.log("should be direct",directPrice)
+    if(directPrice[0]){
     return (
         <div>
-         <p>Price: $ {directPrice[0].MinPrice}</p>
+         <p>Price: ${directPrice[0].MinPrice}</p>
          <p>Date: {formatDate(directPrice[0].OutboundLeg.DepartureDate)}</p>
          <p>Airline: {getCarrier(directPrice[0].OutboundLeg.CarrierIds, carrierIds)}</p>
          <p>Departure Airport: {getAp(directPrice[0].OutboundLeg.OriginId, airports)}</p>
          <p>Arrival Airport: {getAp(directPrice[0].OutboundLeg.DestinationId, airports)}</p>
+         <p><a href = {getSCU(directPrice[0].OutboundLeg.OriginId,directPrice[0].OutboundLeg.DestinationId, airports, directPrice[0].OutboundLeg.DepartureDate)} target="_blank"> Book Flight</a></p>
          </div>
-    )
+    )}
+    else{
+        return(
+            <div>
+                 <h4>No Direct Flights</h4>
+            </div>
+        )
+    }
 }
 function printIndirectPrice(prices, carrierIds, airports) {
-    let directPrice = prices.filter(price => {
+    let indirectPrice = prices.filter(price => {
         // console.log("price", price)
         return price.Direct == false
     })
-    console.log("should be direct",directPrice)
+    // console.log("should be direct",indirectPrice)
+    if(indirectPrice[0]){
     return (
         <div>
-         <p>Price: $ {directPrice[0].MinPrice}</p>
-         <p>Date: {formatDate(directPrice[0].OutboundLeg.DepartureDate)}</p>
-         <p>Airline: {getCarrier(directPrice[0].OutboundLeg.CarrierIds, carrierIds)}</p>
-         <p>Departure Airport: {getAp(directPrice[0].OutboundLeg.OriginId, airports)}</p>
-         <p>Arrival Airport: {getAp(directPrice[0].OutboundLeg.DestinationId, airports)}</p>
+         <p>Price: ${indirectPrice[0].MinPrice}</p>
+         <p>Date: {formatDate(indirectPrice[0].OutboundLeg.DepartureDate)}</p>
+         <p>Airline: {getCarrier(indirectPrice[0].OutboundLeg.CarrierIds, carrierIds)}</p>
+         <p>Departure Airport: {getAp(indirectPrice[0].OutboundLeg.OriginId, airports)}</p>
+         <p>Arrival Airport: {getAp(indirectPrice[0].OutboundLeg.DestinationId, airports)}</p>
+         <p><a href = {getSCU(indirectPrice[0].OutboundLeg.OriginId,indirectPrice[0].OutboundLeg.DestinationId, airports, indirectPrice[0].OutboundLeg.DepartureDate)} target="_blank"> Book Flight</a></p>
          </div>
-    )
+    )}
+    else{
+        return(
+            <div>
+                <h4>No Indirect Flights</h4>
+            </div>
+        )
+    }
 }
 function Flights(props) {
-    console.log("card test", props.flightInfo)
+    // console.log("card test", props.flightInfo)
     return (
         <Card className="single-card" >
             <Card.Body>
