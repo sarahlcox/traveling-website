@@ -21,9 +21,9 @@ function Headlines(props) {
                         </thead>
                         <tbody>
                             <tr>
-                                <td>{props.newsInfo.getInfo.positive}</td>
-                                <td>{props.newsInfo.getInfo.negative}</td>
-                                <td>{props.newsInfo.getInfo.hospitalized}</td>
+                                <td>{props.newsInfo.positive}</td>
+                                <td>{props.newsInfo.negative}</td>
+                                <td>{props.newsInfo.hospitalized}</td>
                             </tr>
                         </tbody>
                     </Table>
