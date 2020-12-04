@@ -4,14 +4,15 @@ import CardLayout from '../components/Layout/CardLayout.js';
 import API from "../utils/API";
 
 
+
 function Home() {
 
     const [formObject, setFormObject] = React.useState({})
-    const [flightState, setFlightState] = React.useState(
-        {}
-    )
+    const [flightState, setFlightState] = React.useState({})
     const [hotelState, setHotelState] = React.useState([])
     const [newsState, setNewsState] = React.useState([])
+    const [attractionState, setAttractionState] = React.useState([])
+
 
     function changeFlightState(data) {
         // console.log("setting data...", data.data)
@@ -71,9 +72,12 @@ function Home() {
             setHotelState(hotelsList);
         }).catch(err => console.log(err));
 
-        API.getAttractions(formObject.city2).then(response => {
-            console.log("calling attractions API",response.data);
-        })
+        // get attraction info
+        API.getAttractions(formObject.city2)
+        .then(response => {
+            const attractionsList = response.data
+        setAttractionState(attractionsList);
+                })
     };
     return (
         <div>
@@ -86,6 +90,7 @@ function Home() {
                 flightState={flightState}
                 hotelState={hotelState}
                 newsState={newsState}
+                attractionState={attractionState}
             />
         </div>
     )
