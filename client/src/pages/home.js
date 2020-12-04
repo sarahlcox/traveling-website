@@ -2,7 +2,6 @@ import React from 'react';
 import SearchContainer from '../components/Search/SearchContainer.js';
 import CardLayout from '../components/Layout/CardLayout.js';
 import API from "../utils/API";
-import HomeCard from "../components/Layout/HomeCard.js";
 
 
 function Home() {
@@ -35,7 +34,7 @@ function myTest(test){
         setFormObject({ ...formObject, [name]: value })
 
     };
-    const handleFormSubmit = (event) => {
+    function handleFormSubmit(event) {
         event.preventDefault();
         console.log("running?");
 
@@ -58,7 +57,7 @@ function myTest(test){
             })
             .catch(err => console.log(err));
         // get hotels info
-        API.getHotels({ city2: formObject.city2 }).then(response => {
+        API.getHotels(formObject.city2).then(response => {
             response.data.sort((a, b) => b.starRating - a.starRating);
             const hotelsList = response.data
                 .slice(0, 10).map(hotel => {
