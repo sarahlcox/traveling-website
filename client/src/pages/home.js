@@ -56,7 +56,7 @@ function Home() {
             .catch(err => console.log(err));
         // get hotels info
         API.getHotels({city2: formObject.city2}).then(response => {
-            // console.log("HS", response.data)
+            console.log("HS", response.data)
             response.data.sort((a, b) => b.starRating - a.starRating);
             const hotelsList = response.data
                 .slice(0, 10).map(hotel => {
@@ -74,7 +74,6 @@ function Home() {
             // console.log("calling attractions API",response);
         })
     };
-    console.log("NS", newsState)
     return (
         <div>
             <SearchContainer
