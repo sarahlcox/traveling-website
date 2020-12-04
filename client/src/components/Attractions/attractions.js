@@ -15,7 +15,6 @@ function Attractions(props) {
                     {/* <Card.Img variant="top" src="holder.js/100px160" /> */}
                     <Card.Body>
                     <Card.Title>Things To Do</Card.Title>
-                    <Card.Text>
                     <Table striped bordered responsive>
                         {/* <h1>{props.newsInfo.getInfo.state}</h1> */}
                         <thead>
@@ -36,7 +35,6 @@ function Attractions(props) {
                         })}
                         </tbody>
                     </Table>
-                    </Card.Text>
                     </Card.Body>
                 </Card>
         )
