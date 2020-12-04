@@ -1,6 +1,6 @@
+require('dotenv').config()
 const apiKey = process.env.ATTRACTIONS_APIKEY;
 const fetch = require("node-fetch");
-
 
 function getAttractionList(query) {
     return new Promise(function(resolve, reject) {

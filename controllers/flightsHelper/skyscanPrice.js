@@ -1,3 +1,4 @@
+require('dotenv').config()
 let getCityID = require("./skyscanID") 
 
 var axios = require("axios").default;
