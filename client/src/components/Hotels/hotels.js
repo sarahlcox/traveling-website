@@ -13,7 +13,7 @@ function Hotels(props) {
                         <tr>
                             <th></th>
                             <th>Hotel</th>
-                            <th>Rate</th>
+                            <th>Rate per Night</th>
                             <th>Stars</th>
                         </tr>
                     </thead>
