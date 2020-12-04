@@ -17,7 +17,7 @@ function myTest(test){
     console.log("testing test", test)
 }
     function changeFlightState(data) {
-        console.log("setting data...", data.data)
+        // console.log("setting data...", data.data)
         setFlightState(
             {
                 ...flightState,
