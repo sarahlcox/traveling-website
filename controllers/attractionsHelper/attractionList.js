@@ -1,25 +1,26 @@
 require('dotenv').config()
+var axios = require("axios").default;
 const apiKey = process.env.ATTRACTIONS_APIKEY;
-const fetch = require("node-fetch");
+const attractions = require('../attractionController');
+const getLatLon = require("./attractionLatLon");
 
-function getAttractionList(query) {
-    return new Promise(function(resolve, reject) {
-      var otmAPI =
-        "https://api.opentripmap.com/0.1/en/places/" +
-        "geoname" +
-        "?apikey=" +
-        apiKey;
-      if (query !== undefined) {
-        otmAPI += "&" + query;
-      }
-      fetch(otmAPI)
-        .then(response => response.json())
-        .then(data => {console.log("fetch log",data), resolve(data)})
-        .catch(function(err) {
-          console.log("Fetch Error :-S", err);
-        });
-    });
+async function getAttractionList(query) {
+    try {
+    var {lat,lon} = await getLatLon(query);
+    var otmAPI =
+      "https://api.opentripmap.com/0.1/en/places/" +
+      "autosuggest?apikey="+apiKey+"&name=" + query + "&radius=42500&lon="+lon+"&lat="+lat+""
+    if (query !== undefined) {
+      otmAPI += "&name=" + query;
+    }
+    var attractionResults = await axios.get(otmAPI)
+    var featuresArray = attractionResults.data.features;
+    var tourismArray = featuresArray.map(feature => feature.properties)
+    console.log("looking for good things", tourismArray);
+    return tourismArray;
+  } catch (err) {
+    console.log(err)
   }
+}
 
-getAttractionList ("name=Chicago");
-module.export = getAttractionList;
+module.exports = getAttractionList;
