@@ -17,6 +17,7 @@ import PrivateRoute from "./components/private-route/PrivateRoute";
 import Dashboard from "./components/dashboard/Dashboard"
 
 import 'bootstrap/dist/css/bootstrap.min.css';
+import PrivateHome from "./pages/PrivateHome";
 
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
@@ -50,6 +51,7 @@ function App () {
             <Route exact path="/login" component={Login} />
             <Switch>
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
+              <PrivateRoute exact path="/" component={PrivateHome} />
             </Switch>
           </div>
         </Router>

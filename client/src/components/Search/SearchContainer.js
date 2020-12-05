@@ -2,11 +2,13 @@ import React from "react";
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import Container from 'react-bootstrap/Container';
 import FormControl from './FormControl.js';
+import './Search.css';
+
 // import "./style.css";
 function SearchContainer(props) {
    
         return (
-            <Jumbotron fluid>
+            <Jumbotron fluid className="search-cont">
             <Container>
                 <FormControl 
                 handleInputChange = {props.handleInputChange}

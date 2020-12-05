@@ -10,9 +10,6 @@ function EmptyCard(props) {
                 Please enter in your travel information to search for {props.info.toLowerCase()} details.
                 </Card.Text>
             </Card.Body>
-            <Card.Footer>
-                <small className="text-muted">Last updated 3 mins ago</small>
-            </Card.Footer>
         </Card>
     )
 }
