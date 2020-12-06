@@ -13,13 +13,14 @@ function formatDate(date) {
 }
 
 
-function PrivateHome() {
+function PrivateHome(props) {
 
     const [formObject, setFormObject] = React.useState({})
     const [flightState, setFlightState] = React.useState({})
     const [hotelState, setHotelState] = React.useState([])
     const [newsState, setNewsState] = React.useState([])
     const [attractionState, setAttractionState] = React.useState([])
+    const [savedState, setSavedState] = React.useState([])
 
 
     function changeFlightState(data) {
@@ -111,7 +112,6 @@ function PrivateHome() {
             />
             
             <Button className="save-btn" onClick={saveInput}>Save</Button>{' '}
-
         </div>
     )
 }
