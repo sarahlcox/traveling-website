@@ -4,12 +4,16 @@ import Table from 'react-bootstrap/Table';
 // import "./style.css";
 
 function Attractions(props) {
-    // console.log("looking for the props",props.attractionInfo)
-    const makeUpperCase = (str) => {
-        console.log("===++===========")
-        console.log(str);
-        return str //make this the capitalize function
-    }
+    // const makeUpperCase = (str) => {
+    //     for (var i = 0; i < words.length; i++) {
+    //         var word = words[i];
+    //         var letters = word.split("");
+        
+    //         if (i > 0) {
+    //           letters[0] = letters[0].toUpperCase();
+    //         }
+    //         }
+    //     }
         return ( 
                 <Card className="single-card" >
                     {/* <Card.Img variant="top" src="holder.js/100px160" /> */}

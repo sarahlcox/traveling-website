@@ -14,7 +14,6 @@ export default {
       return axios.post("/api/hotels", hotelsInput)
     },
     getAttractions: function (attractionsInput) {
-      console.log("attractions input", {city2:attractionsInput});
       return axios.post("/api/attractions", {city2:attractionsInput})
     },
 };
