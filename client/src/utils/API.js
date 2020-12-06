@@ -17,4 +17,8 @@ export default {
       console.log("attractions input", {city2:attractionsInput});
       return axios.post("/api/attractions", {city2:attractionsInput})
     },
+    saveSearch: function (searchInput) {
+      console.log(searchInput);
+      return axios.post("/api/save", searchInput)
+    }
 };
