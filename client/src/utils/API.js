@@ -20,4 +20,7 @@ export default {
     saveSearch: function(searchInput){
       return axios.post("/api/save", searchInput)
     },
+    getSearch: function(userId){
+      return axios.get("/api/save/" + userId)
+    }
 };
