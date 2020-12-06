@@ -3,7 +3,7 @@ import { Navbar,Nav} from 'react-bootstrap';
 import './Navbar.css';
 import whitelogoplaceholder from '../../Assets/whitelogoplaceholder.png';
 
-function MyNav() {
+function PrivateNav() {
     return (
         <Navbar className="nav-style" expand="lg" sticky="top">
         <Navbar.Brand href="#home">
@@ -16,12 +16,12 @@ function MyNav() {
           />{' '}
         </Navbar.Brand>
         <Nav className="mr-auto">
-        <Nav.Link href="/">Home</Nav.Link>
+        <Nav.Link href="/privatehome">Home</Nav.Link>
         <Nav.Link href="/signup">Account</Nav.Link>
         </Nav>
       </Navbar>
     );
   }
   
-  export default MyNav;
+  export default PrivateNav;
   

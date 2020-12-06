@@ -3,6 +3,8 @@ import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
+import './Search.css';
+
 
 // import "./style.css";
 
@@ -43,11 +45,16 @@ function FormControl(props){
                 />
                 </Col>
                 <Col>
+                <Row>
                 <Form.Control
                  placeholder="Departure Date" 
                  onChange={props.handleInputChange}
                  name="outboundDate"
                 />
+                </Row>
+                <Row>
+                    <p>dd/mm/yyyy</p>
+                </Row>
                 </Col>
                 <Col>
                 <Button 

@@ -15,6 +15,7 @@ import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 import PrivateRoute from "./components/private-route/PrivateRoute";
 import Dashboard from "./components/dashboard/Dashboard"
+import PrivateHome from "./pages/PrivateHome";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -44,12 +45,13 @@ function App () {
       <Provider store={store}>
         <Router>
           <div className="App">
-            <MyNav />
+            {/* <MyNav /> */}
             <Route exact path="/" component =  {Home} />
             <Route exact path="/signup" component={Register} />
             <Route exact path="/login" component={Login} />
             <Switch>
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
+              <PrivateRoute exact path="/privatehome" component={PrivateHome} />
             </Switch>
           </div>
         </Router>

@@ -2,7 +2,8 @@ import React from 'react';
 import SearchContainer from '../components/Search/SearchContainer.js';
 import CardLayout from '../components/Layout/CardLayout.js';
 import API from "../utils/API";
-import MyNav from "../components/Nav/navbar.js";
+import Button from 'react-bootstrap/Button';
+import PrivateNav from '../components/Nav/PrivateNav.js';
 
 function formatDate(date) {
     let splitDate = date.split("/")
@@ -12,7 +13,7 @@ function formatDate(date) {
 }
 
 
-function Home() {
+function PrivateHome() {
 
     const [formObject, setFormObject] = React.useState({})
     const [flightState, setFlightState] = React.useState({})
@@ -32,6 +33,15 @@ function Home() {
 
             }
         );
+    }
+
+    function saveInput(){
+        API.saveSearch({ 
+            city1: formObject.city1,
+            city2: formObject.city2,
+            stateCode: formObject.stateCode,
+            outboundDate: formatDate(formObject.outboundDate)
+        })
     }
 
     function handleInputChange(event) {
@@ -87,7 +97,7 @@ function Home() {
     };
     return (
         <div>
-            <MyNav />
+            <PrivateNav />
             <SearchContainer
                 handleInputChange={handleInputChange}
                 handleFormSubmit={handleFormSubmit}
@@ -99,9 +109,12 @@ function Home() {
                 newsState={newsState}
                 attractionState={attractionState}
             />
+            
+            <Button className="save-btn" onClick={saveInput}>Save</Button>{' '}
+
         </div>
     )
 }
 //test
 
-export default Home;
+export default PrivateHome;
