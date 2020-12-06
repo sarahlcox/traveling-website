@@ -18,6 +18,6 @@ export default {
       return axios.post("/api/attractions", {city2:attractionsInput})
     },
     saveSearch: function(searchInput){
-      return axios.post("/api/savesearch", searchInput)
+      return axios.post("/api/save", searchInput)
     },
 };
