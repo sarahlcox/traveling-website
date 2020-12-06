@@ -12,6 +12,7 @@ function Home() {
     )
     const [hotelState, setHotelState] = React.useState([])
     const [newsState, setNewsState] = React.useState([])
+    const [savedState, setSavedState] = React.useState([])
 
     function changeFlightState(data) {
         // console.log("setting data...", data.data)
@@ -73,6 +74,10 @@ function Home() {
 
         API.getAttractions(formObject.city2).then(response => {
             console.log("calling attractions API",response.data);
+        })
+
+        API.saveSearch(formObject).then(response => {
+            console.log("save", response.data);
         })
     };
     return (
