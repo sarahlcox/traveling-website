@@ -1,13 +1,7 @@
 const router = require("express").Router();
+const saveController = require("../../controllers/saveController");
 
 // save search route
-router.post("/save", (req, res) => {
-    const { isValid } = validateLoginInput(req.body);
-
-    // Check validation
-    if (!isValid) {
-        return res.json({});
-    }
-})
+router.route("/save").post(saveController.saveSearch);
 
 module.exports = router;
