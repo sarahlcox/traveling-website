@@ -1,4 +1,4 @@
-const { User, Search } = require("../../models");
+const { User, Search } = require("../models");
 
 const save = {
     saveSearch: (req, res) => {
