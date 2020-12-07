@@ -9,15 +9,18 @@ import API from "../../utils/API";
 import "./Dashboard.css";
 
 class Dashboard extends Component {
-
+  // define state
   state = []
-
 
   onLogoutClick = e => {
     e.preventDefault();
     this.props.logoutUser();
   };
-
+  // when component moounts, get saved searches list from database
+  componentDidMount() {
+    this.getSavedList(this.props.auth.user.id);
+  }
+  // define function to get data from database
   getSavedList = userId => {
     API.getSearch(userId).then(response => {
       // console.log(response.data);
@@ -25,6 +28,7 @@ class Dashboard extends Component {
       this.setState(myResponse)
     })
   }
+  // get list of saved searches from state
   grabList = (mystate) => {
     if (mystate[0]) {
       const newState = Object.values(mystate);
@@ -32,20 +36,16 @@ class Dashboard extends Component {
         return (
         <SearchesList list = {newState}/>
         )
-      
-      
     }
     else {
       return <p>no info</p>
     }
-
   }
-
 
   render() {
     const { user } = this.props.auth;
     // console.log("user id", this.props.auth.user.id);
-    this.getSavedList(this.props.auth.user.id);
+    // this.getSavedList(this.props.auth.user.id);
     // console.log("state", this.state[0])
     return (
       <div>
