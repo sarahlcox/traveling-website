@@ -19,13 +19,9 @@ async function getFlightPrice(city1, city2, departureDate){
     };
 
     return axios.request(options).then(function (response) {
-        console.log(`we have successfully looked up the flights`)
-        // console.log("sky2L20", response.data);
         return response.data;
     }).catch(function (error) {
-        console.log(`theres been an error in the skyscanPrice.js`)
         console.error(error);
-        // return error;
     });
 }
 // getFlightPrice("Chicago", "New York", "2020-12-15").then(res => console.log("sky2L27", res.data))
