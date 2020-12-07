@@ -14,7 +14,7 @@ function Attractions(props) {
                 <Card className="single-card" >
                     {/* <Card.Img variant="top" src="holder.js/100px160" /> */}
                     <Card.Body>
-                    <Card.Title>Things To Do</Card.Title>
+                    <Card.Title className="card-title">Things To Do</Card.Title>
                     <Table striped bordered responsive>
                         {/* <h1>{props.newsInfo.getInfo.state}</h1> */}
                         <thead>

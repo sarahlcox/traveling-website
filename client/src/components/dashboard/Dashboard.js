@@ -4,6 +4,8 @@ import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
 import PrivateNav from "../Nav/PrivateNav.js";
 import API from "../../utils/API";
+import "./Dashboard.css";
+
 
 class Dashboard extends Component {
   onLogoutClick = e => {
@@ -26,12 +28,12 @@ return (
         <PrivateNav />
           <div style={{ height: "75vh" }} className="container valign-wrapper">
             <div className="row">
-              <div className="col s12 center-align">
+              <div className="col s12 center-align welcome-message">
                 <h4>
                   <b>Hey there,</b> {user.name.split(" ")[0]}
-                  <p className="flow-text grey-text text-darken-1">
-                    You are logged into a{" "}
-                    <span style={{ fontFamily: "monospace" }}>Traveling Website</span> app 👏
+                  <p className="flow-text">
+                    You are logged into your{" "}
+                    <span style={{ fontFamily: "monospace" }}>Travel Pocket Wizard</span> dashboard 👏
                   </p>
                 </h4>
                 <button
@@ -42,7 +44,7 @@ return (
                     marginTop: "1rem"
                   }}
                   onClick={this.onLogoutClick}
-                  className="btn btn-large waves-effect waves-light hoverable blue accent-3"
+                  className="btn btn-large waves-effect waves-light hoverable user-btn"
                 >
                   Logout
                 </button>
