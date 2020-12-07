@@ -31,6 +31,7 @@
     "if-env": "^1.0.4",
     "is-empty": "^1.2.0",
     "jsonwebtoken": "^8.5.1",
+    "mongojs": "^3.1.0",
     "mongoose": "^5.10.19",
     "node-fetch": "^2.6.1",
     "passport": "^0.4.1",
