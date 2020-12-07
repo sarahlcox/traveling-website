@@ -4,6 +4,8 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { registerUser } from "../../actions/authActions";
 import classnames from "classnames";
+import "./Login.css";
+
 
 class Register extends Component {
   constructor() {
@@ -52,7 +54,7 @@ render() {
 return (
       <div className="container">
         <div className="row">
-          <div className="col s8 offset-s2">
+          <div className="col s8 offset-s2 login-page">
             <Link to="/" className="btn-flat waves-effect">
               <i className="material-icons left">keyboard_backspace</i> Back to
               home
@@ -61,11 +63,11 @@ return (
               <h4>
                 <b>Register</b> below
               </h4>
-              <p className="grey-text text-darken-1">
+              <p className="login-page">
                 Already have an account? <Link to="/login">Log in</Link>
               </p>
             </div>
-            <form noValidate onSubmit={this.onSubmit}>
+            <form noValidate onSubmit={this.onSubmit} className="login-page">
               <div className="input-field col s12">
                 <input
                   onChange={this.onChange}
@@ -131,7 +133,7 @@ return (
                     marginTop: "1rem"
                   }}
                   type="submit"
-                  className="btn btn-large waves-effect waves-light hoverable blue accent-3"
+                  className="btn btn-large waves-effect hoverable sign-up"
                 >
                   Sign up
                 </button>

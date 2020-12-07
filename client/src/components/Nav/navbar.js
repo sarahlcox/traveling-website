@@ -6,7 +6,7 @@ import TPWLogo from '../../Assets/TPWLogo.png';
 // function navBrandRenderer() {
 //   var w= window.innerWidth;
 //   if (w>994px) {
-// }
+// } 
 function MyNav() {
     return (
       <Navbar
