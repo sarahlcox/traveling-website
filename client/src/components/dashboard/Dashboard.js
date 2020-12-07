@@ -22,7 +22,14 @@ state = []
       this.setState(myResponse)
     })
   }
-
+  grabList = (state) => {
+    if(state[0]){
+    return(<h1>{state[0].city1}</h1>)
+    }
+    else{
+      return(<h1>no saved searches</h1>)
+    }
+  }
 render() {
     const { user } = this.props.auth;
     console.log("user id", this.props.auth.user.id);
@@ -54,7 +61,7 @@ return (
                   Logout
                 </button>
               </div>
-                <h1>{}</h1>
+                <h1>{this.grabList(this.state)}</h1>
             </div>
           </div>
     </div>
