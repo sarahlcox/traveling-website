@@ -6,6 +6,10 @@ import PrivateNav from "../Nav/PrivateNav.js";
 import API from "../../utils/API";
 
 class Dashboard extends Component {
+
+state = []
+
+
   onLogoutClick = e => {
     e.preventDefault();
     this.props.logoutUser();
@@ -14,6 +18,8 @@ class Dashboard extends Component {
   getSavedList = userId => {
     API.getSearch(userId).then(response => {
       console.log(response.data);
+      let myResponse = response.data
+      this.setState(myResponse)
     })
   }
 
@@ -21,6 +27,7 @@ render() {
     const { user } = this.props.auth;
     console.log("user id", this.props.auth.user.id);
     this.getSavedList(this.props.auth.user.id);
+    console.log("state", this.state[0])
 return (
       <div>
         <PrivateNav />
@@ -47,6 +54,7 @@ return (
                   Logout
                 </button>
               </div>
+                <h1>{}</h1>
             </div>
           </div>
     </div>
