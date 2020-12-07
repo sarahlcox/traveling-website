@@ -12,7 +12,7 @@ async function getLatLon(query) {
           otmAPI += "&name=" + query;
         }
         var getURL = await axios.get(otmAPI)
-        console.log("Looking for the URL", getURL.data);
+        // console.log("Looking for the URL", getURL.data);
         return getURL.data;
     } catch(err) {
         console.log(err)
