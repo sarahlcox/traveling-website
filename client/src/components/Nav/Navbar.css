@@ -1,4 +1,20 @@
 .nav-style {
     min-height: 200px;
-    background-color: rgb(105, 157, 159);
+    background-color: rgb(19, 19, 19);
 }
+
+.nav-link {
+    color: rgb(255, 255, 255)!important;
+    font-size: 20px;
+
+  }
+
+  #our-nav{
+      text-align: center !important;
+      align-content: center ;
+  }
+
+  #image-size{
+      height: 100px;
+      width: 152px;
+  }
