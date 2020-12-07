@@ -83,8 +83,9 @@ function Home() {
         .then(response => {
             const attractionsList = response.data
         setAttractionState(attractionsList);
-                })
+                }) 
     };
+    
     return (
         <div>
             <MyNav />

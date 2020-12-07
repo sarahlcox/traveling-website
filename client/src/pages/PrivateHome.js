@@ -48,8 +48,8 @@ function PrivateHome(props) {
     function handleInputChange(event) {
         const { name, value } = event.target;
         setFormObject({ ...formObject, [name]: value })
-
     };
+    
     function handleFormSubmit(event) {
         event.preventDefault();
         API.getFlight({

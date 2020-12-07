@@ -56,7 +56,6 @@ function FormControl(props){
             </Row>
             </Form>
         )
-    
 }
 
 export default FormControl;

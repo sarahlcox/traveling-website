@@ -16,7 +16,6 @@ function SearchContainer(props) {
             </Container>
             </Jumbotron>
         )
-    
 }
 
 export default SearchContainer;

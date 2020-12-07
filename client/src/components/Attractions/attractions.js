@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Card from 'react-bootstrap/Card';
 import Table from 'react-bootstrap/Table';
 
+
 function Attractions(props) {
 return ( 
                 <Card className="single-card" >
