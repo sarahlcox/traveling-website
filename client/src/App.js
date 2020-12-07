@@ -19,13 +19,15 @@ import PrivateHome from "./pages/PrivateHome";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+let decoded;
+
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
   // Set auth token header auth
   const token = localStorage.jwtToken;
   setAuthToken(token);
   // Decode token and get user info and exp
-  const decoded = jwt_decode(token);
+  decoded = jwt_decode(token);
   // Set user and isAuthenticated
   store.dispatch(setCurrentUser(decoded));
 // Check for expired token
@@ -51,7 +53,7 @@ function App () {
             <Route exact path="/login" component={Login} />
             <Switch>
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
-              <PrivateRoute exact path="/privatehome" component={PrivateHome} />
+              <PrivateRoute exact path="/privatehome" component={()=><PrivateHome userId={decoded}/>} />
             </Switch>
           </div>
         </Router>
