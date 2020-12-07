@@ -53,11 +53,11 @@ class Dashboard extends Component {
         <Container className="cont mt-4">
           <Row>
             <Jumbotron className="greeting mx-auto">
-              <h2><b>Hey there,</b> {user.name.split(" ")[0]}</h2>
-              <h4 className="flow-text">
+              <h1 className="mb-4"><b>Hey there,</b> {user.name.split(" ")[0]}</h1>
+              <h3 className="mb-2">
                 You are logged into {" "}
                 <span>Travel Pocket Wizard</span>
-              </h4>
+              </h3>
               <Button
                 onClick={this.onLogoutClick}
                 size="lg"
