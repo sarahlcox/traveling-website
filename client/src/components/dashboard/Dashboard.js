@@ -3,15 +3,24 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
 import PrivateNav from "../Nav/PrivateNav.js";
+import API from "../../utils/API";
 
 class Dashboard extends Component {
   onLogoutClick = e => {
     e.preventDefault();
     this.props.logoutUser();
   };
+
+  getSavedList = userId => {
+    API.getSearch(userId).then(response => {
+      console.log(response.data);
+    })
+  }
+
 render() {
     const { user } = this.props.auth;
-    console.log("auth props",this.props.auth);
+    console.log("user id", this.props.auth.user.id);
+    this.getSavedList(this.props.auth.user.id);
 return (
       <div>
         <PrivateNav />
