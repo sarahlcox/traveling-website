@@ -16,4 +16,10 @@ export default {
     getAttractions: function (attractionsInput) {
       return axios.post("/api/attractions", {city2:attractionsInput})
     },
+    saveSearch: function(searchInput){
+      return axios.post("/api/save", searchInput)
+    },
+    getSearch: function(userId){
+      return axios.get("/api/save/" + userId)
+    }
 };

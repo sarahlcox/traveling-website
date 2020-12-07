@@ -2,7 +2,8 @@ import React from 'react';
 import SearchContainer from '../components/Search/SearchContainer.js';
 import CardLayout from '../components/Layout/CardLayout.js';
 import API from "../utils/API";
-import Button from 'react-bootstrap/Button'
+import Button from 'react-bootstrap/Button';
+import PrivateNav from '../components/Nav/PrivateNav.js';
 
 function formatDate(date) {
     let splitDate = date.split("/")
@@ -12,13 +13,14 @@ function formatDate(date) {
 }
 
 
-function PrivateHome() {
+function PrivateHome(props) {
 
     const [formObject, setFormObject] = React.useState({})
     const [flightState, setFlightState] = React.useState({})
     const [hotelState, setHotelState] = React.useState([])
     const [newsState, setNewsState] = React.useState([])
     const [attractionState, setAttractionState] = React.useState([])
+    const [savedState, setSavedState] = React.useState([])
 
 
     function changeFlightState(data) {
@@ -32,6 +34,15 @@ function PrivateHome() {
 
             }
         );
+    }
+
+    function saveInput(){
+        API.saveSearch({ 
+            city1: formObject.city1,
+            city2: formObject.city2,
+            stateCode: formObject.stateCode,
+            outboundDate: formatDate(formObject.outboundDate)
+        })
     }
 
     function handleInputChange(event) {
@@ -87,6 +98,7 @@ function PrivateHome() {
     };
     return (
         <div>
+            <PrivateNav />
             <SearchContainer
                 handleInputChange={handleInputChange}
                 handleFormSubmit={handleFormSubmit}
@@ -98,9 +110,8 @@ function PrivateHome() {
                 newsState={newsState}
                 attractionState={attractionState}
             />
-              
-            <Button variant="primary">Primary</Button>{' '}
-
+            
+            <Button className="save-btn" onClick={saveInput}>Save</Button>{' '}
         </div>
     )
 }

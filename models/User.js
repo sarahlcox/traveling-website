@@ -18,7 +18,13 @@ const UserSchema = new Schema({
   date: {
     type: Date,
     default: Date.now
-  }
+  },
+  search: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Search"
+    }
+  ]
 });
 
 module.exports = User = mongoose.model("users", UserSchema);
