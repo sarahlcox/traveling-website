@@ -6,8 +6,8 @@ import Table from 'react-bootstrap/Table';
 function Attractions(props) {
     // console.log("looking for the props",props.attractionInfo)
     const makeUpperCase = (str) => {
-        console.log("===++===========")
-        console.log(str);
+        // console.log("===++===========")
+        // console.log(str);
         return str //make this the capitalize function
     }
         return ( 

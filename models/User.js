@@ -21,8 +21,16 @@ const UserSchema = new Schema({
   },
   search: [
     {
-      type: Schema.Types.ObjectId,
-      ref: "Search"
+      city1:{
+      type: String},
+      city2:{
+      type: String},
+      stateCode:{
+      type: String},
+      outboundDate: {
+        type: Date,
+        default: Date.now
+      }
     }
   ]
 });
