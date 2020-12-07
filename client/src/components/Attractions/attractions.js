@@ -4,19 +4,11 @@ import Table from 'react-bootstrap/Table';
 // import "./style.css";
 
 function Attractions(props) {
-    // console.log("looking for the props",props.attractionInfo)
-    const makeUpperCase = (str) => {
-        // console.log("===++===========")
-        // console.log(str);
-        return str //make this the capitalize function
-    }
-        return ( 
+return ( 
                 <Card className="single-card" >
-                    {/* <Card.Img variant="top" src="holder.js/100px160" /> */}
                     <Card.Body>
-                    <Card.Title>Things To Do</Card.Title>
+                    <Card.Title className="card-title">Things To Do</Card.Title>
                     <Table striped bordered responsive>
-                        {/* <h1>{props.newsInfo.getInfo.state}</h1> */}
                         <thead>
                             <tr>
                                 <th>Name of Attraction:</th>
@@ -28,8 +20,8 @@ function Attractions(props) {
                             
                             return (
                                 <tr key={index} >
-                                    <td>{makeUpperCase(attraction.name)}</td>
-                                    <td>{makeUpperCase(attraction.kinds.split(",")[0])}</td>
+                                    <td>{attraction.name}</td>
+                                    <td>{attraction.kinds.split(",")[0]}</td>
                                 </tr>
                             )
                         })}

@@ -23,7 +23,7 @@ return (
         <CardDeck>
             {(props.hotelState[0]) ? 
             <Hotels hotelInfo = {props.hotelState} /> : <EmptyCard info={"Hotel"}/>}
-            {(props.attractionState) ? 
+            {(props.attractionState[0]) ? 
             <Attractions attractionInfo = {props.attractionState} /> : <EmptyCard info={"Attractions"}/>}
         </CardDeck>
 </div>
