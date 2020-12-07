@@ -34,7 +34,7 @@ const save = {
     getSearch: (req, res) => {
         // console.log("backend id", req.params.id);
         User.findById(req.params.id).then((data) => {
-            console.log("data search",data.search);
+            // console.log("data search",data.search);
             const mySearchList = data.search;
             // console.log("mysearches",mySearchList)
             res.json(mySearchList)

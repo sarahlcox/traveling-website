@@ -18,3 +18,22 @@
       height: 100px;
       width: 152px;
   }
+
+  @media only screen and (max-width: 993px){
+      .resp-logo {
+        visibility: hidden;
+        /* display: none !important; */
+        height: 1px !important;
+        width: auto;
+      }
+      .resp-link {
+          color: teal !important;
+          display: inline-block;
+      }
+  }
+
+@media only screen and (min-width: 994px){
+  .mobile-logo {
+      visibility: hidden
+  }
+}
