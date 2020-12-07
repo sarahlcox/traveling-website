@@ -6,20 +6,9 @@ import Button from 'react-bootstrap/Button';
 import './Search.css';
 
 
-// import "./style.css";
-
 function FormControl(props){
     
-    // React.useEffect(()=>{
-    //     //make state and pass the state instead of city names & date
-    //     API.getFlight({
-    //         city1: "Chicago",
-    //         city2: "New York",
-    //         outboundDate: "test"
-    //     }).then(res =>{
-    //         console.log("FE res", res)
-    //     })
-    // },[])
+
         return (
             <Form>
             <Row>
@@ -53,7 +42,9 @@ function FormControl(props){
                 />
                 </Row>
                 <Row>
-                    <p>dd/mm/yyyy</p>
+                    <Col></Col>
+                    <Col> <p id="date">(dd/mm/yyyy)</p></Col>
+                    <Col></Col>
                 </Row>
                 </Col>
                 <Col>
