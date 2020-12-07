@@ -5,21 +5,7 @@ import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import './Search.css';
 
-
-// import "./style.css";
-
 function FormControl(props){
-    
-    // React.useEffect(()=>{
-    //     //make state and pass the state instead of city names & date
-    //     API.getFlight({
-    //         city1: "Chicago",
-    //         city2: "New York",
-    //         outboundDate: "test"
-    //     }).then(res =>{
-    //         console.log("FE res", res)
-    //     })
-    // },[])
         return (
             <Form>
             <Row>

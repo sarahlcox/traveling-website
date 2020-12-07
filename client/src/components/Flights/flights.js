@@ -3,7 +3,6 @@ import { Card, Accordion, } from 'react-bootstrap';
 
 function formatDate(date) {
     const formatedDate = date.split("T");
-    // console.log("new date", formatedDate)
     return formatedDate[0]
 }
 function getCarrier(carrierID, getID){
@@ -15,13 +14,11 @@ function getCarrier(carrierID, getID){
    return directCarrier[0].Name
 }
 function getSC(placeID, getID){
-    // console.log(getID)
     let place = getID.filter(place =>{
         if(place.PlaceId == placeID){
             return place
         }
     })
-    // console.log(place)
     return place[0].SkyscannerCode
 }
 function getSCU(placeID1,placeID2, getID, date){
@@ -33,21 +30,17 @@ function getSCU(placeID1,placeID2, getID, date){
 
 }
 function getAp(placeID, getID){
-    // console.log(getID)
     let place = getID.filter(place =>{
         if(place.PlaceId == placeID){
             return place
         }
     })
-    // console.log(place)
     return place[0].Name
 }
 function printDirectPrice(prices, carrierIds, airports) {
     let directPrice = prices.filter(price => {
-        // console.log("price", price)
         return price.Direct == true
     })
-    // console.log("should be direct",directPrice)
     if(directPrice[0]){
     return (
         <div>
@@ -69,10 +62,8 @@ function printDirectPrice(prices, carrierIds, airports) {
 }
 function printIndirectPrice(prices, carrierIds, airports) {
     let indirectPrice = prices.filter(price => {
-        // console.log("price", price)
         return price.Direct == false
     })
-    // console.log("should be direct",indirectPrice)
     if(indirectPrice[0]){
     return (
         <div>
@@ -93,7 +84,6 @@ function printIndirectPrice(prices, carrierIds, airports) {
     }
 }
 function Flights(props) {
-    // console.log("card test", props.flightInfo)
     return (
         <Card className="single-card" >
             <Card.Body>

@@ -12,7 +12,6 @@ function formatDate(date) {
         return formatedDate
     }
     const formatingDate = date.split("T");
-    // console.log("new date", formatedDate)
     return formatedDate(formatingDate[0])
 }
 

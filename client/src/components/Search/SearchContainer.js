@@ -4,7 +4,6 @@ import Container from 'react-bootstrap/Container';
 import FormControl from './FormControl.js';
 import './Search.css';
 
-// import "./style.css";
 function SearchContainer(props) {
    
         return (

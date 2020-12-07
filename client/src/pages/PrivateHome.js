@@ -24,7 +24,6 @@ function PrivateHome(props) {
 
 
     function changeFlightState(data) {
-        // console.log("setting data...", data.data)
         setFlightState(
             {
                 ...flightState,
@@ -53,14 +52,12 @@ function PrivateHome(props) {
     };
     function handleFormSubmit(event) {
         event.preventDefault();
-        console.log("running?");
         API.getFlight({
             city1: formObject.city1,
             city2: formObject.city2,
             outboundDate: formatDate(formObject.outboundDate)
         })
             .then(res => {
-                console.log("FS", res)
                 changeFlightState(res);
             })
             .catch(err => console.log(err));
@@ -69,13 +66,11 @@ function PrivateHome(props) {
         //get covid info
         API.getState(formObject.stateCode)
             .then(res => {
-                console.log("SL:", res.data);
                 setNewsState(res.data);
             })
             .catch(err => console.log(err));
         // get hotels info
         API.getHotels({ city2: formObject.city2 }).then(response => {
-            // console.log("HS", response.data)
             response.data.sort((a, b) => b.starRating - a.starRating);
             const hotelsList = response.data
                 .slice(0, 10).map(hotel => {

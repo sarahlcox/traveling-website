@@ -7,11 +7,7 @@ import Attractions from '../Attractions/attractions.js';
 import EmptyCard from '../Layout/EmptyCard';
 import './cardlayout.css';
 
-// import "./style.css";
 function CardLayout (props) {
-// if(props.flightState.flightData.price){
-//    console.log( "card Props", props.flightState.flightData.price)}
-// console.log("news state?", props.newsState);
 return (
     <div className="card-cont">
         <CardDeck>

@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Card from 'react-bootstrap/Card';
 import Table from 'react-bootstrap/Table';
-// import "./style.css";
 
 function Attractions(props) {
 return ( 
