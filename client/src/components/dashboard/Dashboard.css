@@ -1,0 +1,16 @@
+.cont {
+    height: 75vh;
+    /* margin-top: 80px; */
+}
+
+.greeting {
+    text-align: center;
+    background-color: none;
+}
+
+.logout-btn {
+    width: 150px;
+    border-radius: 3px;
+    letter-spacing: 1.5px;
+}
+
