@@ -6,3 +6,7 @@ button{
     background-color: rgb(64, 0, 120)!important;
     border-color: rgb(64, 0, 120)!important;
 }
+#date{
+    color:#999999;
+    text-align: right;
+}
