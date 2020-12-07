@@ -8,3 +8,13 @@
     font-size: 20px;
 
   }
+
+  #our-nav{
+      text-align: center !important;
+      align-content: center ;
+  }
+
+  #image-size{
+      height: 100px;
+      width: 152px;
+  }
