@@ -11,7 +11,7 @@ class Dashboard extends Component {
   };
 render() {
     const { user } = this.props.auth;
-    console.log(this.props.auth);
+    console.log("auth props",this.props.auth);
 return (
       <div>
         <PrivateNav />
