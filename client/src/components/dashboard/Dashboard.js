@@ -36,7 +36,7 @@ class Dashboard extends Component {
       return grabbedlist
     }
     else {
-      return null
+      return <p>no info</p>
     }
 
   }
