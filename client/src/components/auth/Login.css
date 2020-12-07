@@ -1,0 +1,23 @@
+.cont {
+    height: 75vh;
+    /* margin-top: 80px; */
+}
+
+.login-page {
+    color:  rgb(64, 0, 120);
+    background-color: white;
+    margin-top: 50px;
+    padding-bottom: 20px;
+}
+
+.sign-up {
+    width: 150px;
+    height: auto;
+    border-radius: 3px;
+    letter-spacing: 1.5px;
+    background-color: rgb(64, 0, 120);
+    border-color: rgb(64, 0, 120);
+    color: white !important;
+}
+
+
