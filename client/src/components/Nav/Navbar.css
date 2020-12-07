@@ -1,4 +1,10 @@
 .nav-style {
     min-height: 200px;
-    background-color: rgb(105, 157, 159);
+    background-color: rgb(43, 43, 43);
 }
+
+.nav-link {
+    color: rgb(255, 255, 255)!important;
+    font-size: 20px;
+
+  }

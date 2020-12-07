@@ -10,14 +10,14 @@ function PrivateNav() {
           <img
             alt=""
             src= {whitelogoplaceholder}
-            width="30"
-            height="30"
+            width="50"
+            height="50"
             className="d-inline-block align-top"
           />{' '}
         </Navbar.Brand>
         <Nav className="mr-auto">
-        <Nav.Link href="/privatehome">Home</Nav.Link>
-        <Nav.Link href="/signup">Account</Nav.Link>
+        <Nav.Link href="/privatehome" className="nav-link">Home</Nav.Link>
+        <Nav.Link href="/signup" className="nav-link">Account</Nav.Link>
         </Nav>
       </Navbar>
     );
