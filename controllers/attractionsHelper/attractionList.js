@@ -16,7 +16,6 @@ async function getAttractionList(query) {
     var attractionResults = await axios.get(otmAPI)
     var featuresArray = attractionResults.data.features;
     var tourismArray = featuresArray.map(feature => feature.properties)
-    // console.log("looking for good things", tourismArray);
     return tourismArray;
   } catch (err) {
     console.log(err)

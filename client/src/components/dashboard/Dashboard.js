@@ -1,83 +1,76 @@
 import React, { Component } from "react";
+import { Container, Jumbotron, Row, Col, Button } from "react-bootstrap";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
 import PrivateNav from "../Nav/PrivateNav.js";
+import SearchesList from "./searchedList"
 import API from "../../utils/API";
 import "./Dashboard.css";
 
-
 class Dashboard extends Component {
-
+  // define state
   state = []
-
 
   onLogoutClick = e => {
     e.preventDefault();
     this.props.logoutUser();
   };
-
+  // when component moounts, get saved searches list from database
+  componentDidMount() {
+    this.getSavedList(this.props.auth.user.id);
+  }
+  // define function to get data from database
   getSavedList = userId => {
     API.getSearch(userId).then(response => {
-      console.log(response.data);
+      // console.log(response.data);
       let myResponse = response.data
       this.setState(myResponse)
     })
   }
+  // get list of saved searches from state
   grabList = (mystate) => {
     if (mystate[0]) {
       const newState = Object.values(mystate);
-      console.log(newState);
-      let grabbedlist = newState.map(e => {
+      // console.log(newState);
         return (
-          <div>
-            <p>{e.city1} to {e.city2}</p>
-          </div>
+        <SearchesList list = {newState}/>
         )
-      })
-      return grabbedlist
     }
     else {
       return <p>no info</p>
     }
-
   }
-
 
   render() {
     const { user } = this.props.auth;
-    console.log("user id", this.props.auth.user.id);
-    this.getSavedList(this.props.auth.user.id);
-    console.log("state", this.state[0])
+    // console.log("user id", this.props.auth.user.id);
+    // this.getSavedList(this.props.auth.user.id);
+    // console.log("state", this.state[0])
     return (
       <div>
         <PrivateNav />
-        <div style={{ height: "75vh" }} className="container valign-wrapper">
-          <div className="row">
-            <div className="col s12 center-align">
-              <h4>
-                <b>Hey there,</b> {user.name.split(" ")[0]}
-                <p className="flow-text grey-text text-darken-1">
-                  You are logged into a{" "}
-                  <span style={{ fontFamily: "monospace" }}>Traveling Website</span> app 👏
-                  </p>
-              </h4>
-              <button
-                style={{
-                  width: "150px",
-                  borderRadius: "3px",
-                  letterSpacing: "1.5px",
-                  marginTop: "1rem"
-                }}
+        <Container className="cont mt-4">
+          <Row>
+            <Jumbotron className="greeting mx-auto">
+              <h1 className="mb-4"><b>Hey there,</b> {user.name.split(" ")[0]}</h1>
+              <h3 className="mb-2">
+                You are logged into {" "}
+                <span>Travel Pocket Wizard</span>
+              </h3>
+              <Button
                 onClick={this.onLogoutClick}
-                className="btn btn-large waves-effect waves-light hoverable blue accent-3"
+                size="lg"
+                className="logout-btn my-2"
               >
                 Logout
-                </button>
-            </div>
-            <h1>{this.grabList(this.state)}</h1>
-          </div>
-        </div>
+                </Button>
+            </Jumbotron>
+          </Row>
+          <Row>
+            {this.grabList(this.state)}
+          </Row>
+        </Container>
       </div>
     );
   }

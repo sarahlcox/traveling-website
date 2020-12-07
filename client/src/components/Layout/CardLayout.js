@@ -9,9 +9,6 @@ import './cardlayout.css';
 
 // import "./style.css";
 function CardLayout (props) {
-// if(props.flightState.flightData.price){
-//    console.log( "card Props", props.flightState.flightData.price)}
-// console.log("news state?", props.newsState);
 return (
     <div className="card-cont">
         <CardDeck>
@@ -23,7 +20,7 @@ return (
         <CardDeck>
             {(props.hotelState[0]) ? 
             <Hotels hotelInfo = {props.hotelState} /> : <EmptyCard info={"Hotel"}/>}
-            {(props.attractionState) ? 
+            {(props.attractionState[0]) ? 
             <Attractions attractionInfo = {props.attractionState} /> : <EmptyCard info={"Attractions"}/>}
         </CardDeck>
 </div>
