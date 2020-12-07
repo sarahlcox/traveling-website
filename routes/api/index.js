@@ -7,7 +7,7 @@ const newsRoute = require("./news");
 const attractionsRoute = require("./attractions");
 const saveRoute = require("./save");
 
-// Book routes
+// API routes
 router.use("/flights", flightsRoute);
 router.use("/news", newsRoute);
 router.use("/hotels", hotelsRoute);
