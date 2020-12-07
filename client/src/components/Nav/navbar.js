@@ -37,7 +37,7 @@ function MyNav() {
           />{' '}
         </Navbar.Brand>
           </Nav.Link>
-          <Nav.Link href="/signup" className="resp-link">Account</Nav.Link>
+          <Nav.Link href="/signup" className="resp-link account-link">Account</Nav.Link>
         </Nav>
       </Navbar.Collapse>
       <div className="navbar-collapse collapse" style={{ flex: "1" }} />
