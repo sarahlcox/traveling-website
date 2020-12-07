@@ -23,11 +23,21 @@ state = []
     })
   }
 
+  grabList = (state) => {
+    if(state[0]){
+    return(<h1>{state[0].city1}</h1>)
+    }
+    else{
+      return(<h1>no saved searches</h1>)
+    }
+  }
 render() {
     const { user } = this.props.auth;
     console.log("user id", this.props.auth.user.id);
     this.getSavedList(this.props.auth.user.id);
-    console.log("state", this.state[0])
+    console.log("state", this.state)
+    let myState = this.state
+    console.log(myState)
 return (
       <div>
         <PrivateNav />
@@ -54,7 +64,7 @@ return (
                   Logout
                 </button>
               </div>
-                <h1>{}</h1>
+                <h1>{this.grabList(this.state)}</h1>
             </div>
           </div>
     </div>
