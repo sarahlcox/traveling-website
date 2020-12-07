@@ -16,7 +16,6 @@ function Attractions(props) {
                         </thead>
                         <tbody>
                         {props.attractionInfo.map((attraction,index) => {
-                            
                             return (
                                 <tr key={index} >
                                     <td>{attraction.name}</td>
