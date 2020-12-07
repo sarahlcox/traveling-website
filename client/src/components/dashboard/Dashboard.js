@@ -1,10 +1,11 @@
 import React, { Component } from "react";
-import { Container, Row, Col, Button } from "react-bootstrap";
+import { Container, Jumbotron, Row, Col, Button } from "react-bootstrap";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
 import PrivateNav from "../Nav/PrivateNav.js";
 import API from "../../utils/API";
+import "./Dashboard.css";
 
 class Dashboard extends Component {
 
@@ -51,9 +52,9 @@ class Dashboard extends Component {
     return (
       <div>
         <PrivateNav />
-        <Container style={{ height: "75vh" }} className="valign-wrapper">
+        <Container className="cont mt-4">
           <Row>
-            <Col sm={12} className="center-align">
+            <Jumbotron className="greeting mx-auto">
               <h2><b>Hey there,</b> {user.name.split(" ")[0]}</h2>
               <h4 className="flow-text">
                 You are logged into {" "}
@@ -61,18 +62,15 @@ class Dashboard extends Component {
               </h4>
               <Button
                 variant="primary"
-                style={{
-                //   width: "150px",
-                //   borderRadius: "3px",
-                  letterSpacing: "1.5px",
-                }}
                 onClick={this.onLogoutClick}
                 size="lg"
-                className="my-2"
+                className="logout-btn my-2"
               >
                 Logout
                 </Button>
-            </Col>
+            </Jumbotron>
+          </Row>
+          <Row>
             <h1>{this.grabList(this.state)}</h1>
           </Row>
         </Container>
