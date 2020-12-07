@@ -38,6 +38,7 @@ function PrivateHome(props) {
 
     function saveInput(){
         API.saveSearch({ 
+            userId: props.userId.id,
             city1: formObject.city1,
             city2: formObject.city2,
             stateCode: formObject.stateCode,
