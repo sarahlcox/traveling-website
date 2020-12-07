@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
 import PrivateNav from "../Nav/PrivateNav.js";
+import SearchesList from "./searchedList"
 import API from "../../utils/API";
 import "./Dashboard.css";
 
@@ -28,14 +29,12 @@ class Dashboard extends Component {
     if (mystate[0]) {
       const newState = Object.values(mystate);
       console.log(newState);
-      let grabbedlist = newState.map(e => {
+      
         return (
-          <div>
-            <p>{e.city1} to {e.city2}</p>
-          </div>
+        <SearchesList list = {newState}/>
         )
-      })
-      return grabbedlist
+      
+      
     }
     else {
       return <p>no info</p>
