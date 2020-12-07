@@ -6,3 +6,8 @@
   .single-card {
     margin:25px;
   }
+
+.card-title {
+  color: rgb(64, 0, 120);
+  font-weight: bold;
+}

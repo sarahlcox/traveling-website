@@ -5,6 +5,8 @@ import { logoutUser } from "../../actions/authActions";
 import PrivateNav from "../Nav/PrivateNav.js";
 import SearchesList from "./searchedList"
 import API from "../../utils/API";
+import "./Dashboard.css";
+
 
 class Dashboard extends Component {
 

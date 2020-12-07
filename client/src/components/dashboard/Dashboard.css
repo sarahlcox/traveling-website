@@ -1,0 +1,9 @@
+.welcome-message {
+    color: white;
+}
+
+.user-btn{
+    background-color: rgb(64, 0, 120);
+    border-color: rgb(64, 0, 120);
+    color: white !important;
+}
