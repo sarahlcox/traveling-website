@@ -21,7 +21,7 @@ function PrivateHome(props) {
     const [hotelState, setHotelState] = React.useState([])
     const [newsState, setNewsState] = React.useState([])
     const [attractionState, setAttractionState] = React.useState([])
-    const [savedState, setSavedState] = React.useState([])
+    // const [savedState, setSavedState] = React.useState([])
     const [alertDivState, setAlertDivState] = React.useState("none")
 
 
@@ -50,18 +50,18 @@ function PrivateHome(props) {
         })
     }
     function showAlert(){
-        console.log("it runs");
+        // console.log("it runs");
         setAlertDivState("block");
         hideShow="block";
-        console.log(alertDivState)
-        console.log(hideShow);
+        // console.log(alertDivState)
+        // console.log(hideShow);
     }
     function hideAlert(){
-        console.log("it runs");
+        // console.log("it runs");
         setAlertDivState("none");
         hideShow="block";
-        console.log(alertDivState)
-        console.log(hideShow);
+        // console.log(alertDivState)
+        // console.log(hideShow);
     }
 
     useEffect(()=>{
@@ -82,7 +82,7 @@ function PrivateHome(props) {
             outboundDate: formatDate(formObject.outboundDate)
         })
             .then(res => {
-                console.log("FS", res)
+                // console.log("FS", res)
                 changeFlightState(res);
             })
             .catch(err => console.log(err));
@@ -91,7 +91,7 @@ function PrivateHome(props) {
         //get covid info
         API.getState(formObject.stateCode)
             .then(res => {
-                console.log("SL:", res.data);
+                // console.log("SL:", res.data);
                 setNewsState(res.data);
             })
             .catch(err => console.log(err));
@@ -135,8 +135,8 @@ function PrivateHome(props) {
             />
             
             <div className="button-div">
-            <Button className="save-btn" onClick={saveInput}>Save Search</Button>{' '}
-            <h4 className="save-alert" style={{ display: alertDivState }}>Search Saved!</h4>
+                <Button className="save-btn" onClick={saveInput}>Save Search</Button>{' '}
+                <h4 className="save-alert" style={{ display: alertDivState }}>Search Saved!</h4>
             </div>
         </div>
     )
