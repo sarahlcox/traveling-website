@@ -1,0 +1,15 @@
+.save-btn{
+    margin-left: 44%;
+    height: 60px;
+    width: 200px;
+    font-size: 20px !important;
+    margin-bottom: 70px;
+}
+
+.save-alert{
+    position: absolute;
+    left: 46%;
+    top: 75%;
+    margin-top: 20px;
+    color: rgb(255, 255, 255);
+}

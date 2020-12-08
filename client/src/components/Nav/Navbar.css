@@ -27,9 +27,15 @@
         width: auto;
       }
       .resp-link {
-          color: teal !important;
+          color: rgb(0, 122, 126)  !important;
           display: inline-block;
+          margin: 0;
+          padding: 0;
       }
+      .account-link {
+        position: absolute;
+        top: 55%;
+    }
   }
 
 @media only screen and (min-width: 994px){
@@ -37,3 +43,4 @@
       visibility: hidden
   }
 }
+

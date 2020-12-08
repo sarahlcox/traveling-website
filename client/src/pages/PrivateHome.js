@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import SearchContainer from '../components/Search/SearchContainer.js';
 import CardLayout from '../components/Layout/CardLayout.js';
 import API from "../utils/API";
 import Button from 'react-bootstrap/Button';
 import PrivateNav from '../components/Nav/PrivateNav.js';
+import "./Pages.css";
 
 function formatDate(date) {
     let splitDate = date.split("/")
@@ -12,7 +13,7 @@ function formatDate(date) {
     return formatedDate
 }
 
-
+var hideShow="none";
 function PrivateHome(props) {
 
     const [formObject, setFormObject] = React.useState({})
@@ -21,6 +22,7 @@ function PrivateHome(props) {
     const [newsState, setNewsState] = React.useState([])
     const [attractionState, setAttractionState] = React.useState([])
     const [savedState, setSavedState] = React.useState([])
+    const [alertDivState, setAlertDivState] = React.useState("none")
 
 
     function changeFlightState(data) {
@@ -37,6 +39,8 @@ function PrivateHome(props) {
     }
 
     function saveInput(){
+        setTimeout(showAlert,2000);
+        setTimeout(hideAlert, 10000);
         API.saveSearch({ 
             userId: props.userId.id,
             city1: formObject.city1,
@@ -45,6 +49,24 @@ function PrivateHome(props) {
             outboundDate: formatDate(formObject.outboundDate)
         })
     }
+    function showAlert(){
+        console.log("it runs");
+        setAlertDivState("block");
+        hideShow="block";
+        console.log(alertDivState)
+        console.log(hideShow);
+    }
+    function hideAlert(){
+        console.log("it runs");
+        setAlertDivState("none");
+        hideShow="block";
+        console.log(alertDivState)
+        console.log(hideShow);
+    }
+
+    useEffect(()=>{
+        console.log(alertDivState);
+    }, [alertDivState])
 
     function handleInputChange(event) {
         const { name, value } = event.target;
@@ -112,7 +134,10 @@ function PrivateHome(props) {
                 attractionState={attractionState}
             />
             
-            <Button className="save-btn" onClick={saveInput}>Save</Button>{' '}
+            <div className="button-div">
+            <Button className="save-btn" onClick={saveInput}>Save Search</Button>{' '}
+            <h4 className="save-alert" style={{ display: alertDivState }}>Search Saved!</h4>
+            </div>
         </div>
     )
 }
