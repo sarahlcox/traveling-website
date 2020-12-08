@@ -7,9 +7,8 @@
 }
 
 .save-alert{
-    position: absolute;
+    position: relative;
     left: 46%;
-    top: 75%;
-    margin-top: 20px;
+    bottom: 0%;
     color: rgb(255, 255, 255);
 }
