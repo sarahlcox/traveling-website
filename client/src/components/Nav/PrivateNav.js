@@ -23,7 +23,7 @@ function PrivateNav() {
       <Nav className="mx-auto parent">
       <Nav.Link href="/privatehome" className="resp-link">Home</Nav.Link>
         <Nav.Link>
-        <Navbar.Brand href="#home">
+        <Navbar.Brand href="/">
         <img
           alt=""
           src= {TPWLogo}

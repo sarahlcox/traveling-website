@@ -25,9 +25,9 @@ function MyNav() {
       <Navbar.Toggle aria-controls="basic-navbar-nav" className="ml-auto" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mx-auto parent">
-        <Nav.Link href="/" className="resp-link">Home</Nav.Link>
+        <Nav.Link href="/" className="resp-link nav-link nav-text">Home</Nav.Link>
           <Nav.Link>
-          <Navbar.Brand href="#home">
+          <Navbar.Brand href="/">
           <img
             alt=""
             src= {TPWLogo}
@@ -37,7 +37,7 @@ function MyNav() {
           />{' '}
         </Navbar.Brand>
           </Nav.Link>
-          <Nav.Link href="/signup" className="resp-link account-link">Account</Nav.Link>
+          <Nav.Link href="/signup" className="resp-link account-link nav-link nav-text">Account</Nav.Link>
         </Nav>
       </Navbar.Collapse>
       <div className="navbar-collapse collapse" style={{ flex: "1" }} />
