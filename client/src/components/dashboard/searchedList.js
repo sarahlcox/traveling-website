@@ -27,9 +27,9 @@ function SearchesList(props){
         let newList = list.map(e => {
             return(
                 <tr>
-                <td>{capitalize(e.city1)}</td>
-                <td>{capitalize(e.city2)}, {e.stateCode}</td>
-                <td>{formatDate(e.outboundDate)}</td>
+                    <td>{capitalize(e.city1)}</td>
+                    <td>{capitalize(e.city2)}, {e.stateCode}</td>
+                    <td>{formatDate(e.outboundDate)}</td>
                 </tr>
             )
         })
@@ -37,25 +37,46 @@ function SearchesList(props){
     }
 
     return(
-        <Card className="single-card">
-            <Card.Body>
-                <Card.Title>Saved Searches</Card.Title>
-                <Card.Text>
-                    <Table striped bordered responsive>
-                        <thead>
-                            <tr>
-                                <th>Origin:</th>
-                                <th>Destination:</th>
-                                <th>Date:</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {mapList(savedList)}
-                        </tbody>
-                    </Table>
-                </Card.Text>
-            </Card.Body>
-        </Card>
+        <CardDeck>
+            <Card className="single-card">
+                <Card.Body>
+                    <Card.Title>Saved Searches</Card.Title>
+                    <Card.Text>
+                        <Table striped bordered responsive>
+                            <thead>
+                                <tr>
+                                    <th>Origin:</th>
+                                    <th>Destination:</th>
+                                    <th>Date:</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {mapList(savedList)}
+                            </tbody>
+                        </Table>
+                    </Card.Text>
+                </Card.Body>
+            </Card>
+            <Card className="">
+                <Card.Body>
+                    <Card.Title>Saved Searches</Card.Title>
+                    <Card.Text>
+                        <Table striped bordered responsive>
+                            <thead>
+                                <tr>
+                                    <th>Origin:</th>
+                                    <th>Destination:</th>
+                                    <th>Date:</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {mapList(savedList)}
+                            </tbody>
+                        </Table>
+                    </Card.Text>
+                </Card.Body>
+            </Card>
+        </CardDeck>
     )
 }
 export default SearchesList;
