@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Toast } from 'react-bootstrap';
 import SearchContainer from '../components/Search/SearchContainer.js';
 import CardLayout from '../components/Layout/CardLayout.js';
 import API from "../utils/API";
@@ -21,12 +22,9 @@ function PrivateHome(props) {
     const [hotelState, setHotelState] = React.useState([])
     const [newsState, setNewsState] = React.useState([])
     const [attractionState, setAttractionState] = React.useState([])
-    // const [savedState, setSavedState] = React.useState([])
-    const [alertDivState, setAlertDivState] = React.useState("none")
-
+    const [saved, setSaved] = React.useState(false)
 
     function changeFlightState(data) {
-        // console.log("setting data...", data.data)
         setFlightState(
             {
                 ...flightState,
@@ -39,8 +37,7 @@ function PrivateHome(props) {
     }
 
     function saveInput(){
-        setTimeout(showAlert,2000);
-        setTimeout(hideAlert, 10000);
+        setSaved(true);
         API.saveSearch({ 
             userId: props.userId.id,
             city1: formObject.city1,
@@ -49,24 +46,6 @@ function PrivateHome(props) {
             outboundDate: formatDate(formObject.outboundDate)
         })
     }
-    function showAlert(){
-        // console.log("it runs");
-        setAlertDivState("block");
-        hideShow="block";
-        // console.log(alertDivState)
-        // console.log(hideShow);
-    }
-    function hideAlert(){
-        // console.log("it runs");
-        setAlertDivState("none");
-        hideShow="block";
-        // console.log(alertDivState)
-        // console.log(hideShow);
-    }
-
-    useEffect(()=>{
-        console.log(alertDivState);
-    }, [alertDivState])
 
     function handleInputChange(event) {
         const { name, value } = event.target;
@@ -82,7 +61,6 @@ function PrivateHome(props) {
             outboundDate: formatDate(formObject.outboundDate)
         })
             .then(res => {
-                // console.log("FS", res)
                 changeFlightState(res);
             })
             .catch(err => console.log(err));
@@ -91,13 +69,11 @@ function PrivateHome(props) {
         //get covid info
         API.getState(formObject.stateCode)
             .then(res => {
-                // console.log("SL:", res.data);
                 setNewsState(res.data);
             })
             .catch(err => console.log(err));
         // get hotels info
         API.getHotels({ city2: formObject.city2 }).then(response => {
-            // console.log("HS", response.data)
             response.data.sort((a, b) => b.starRating - a.starRating);
             const hotelsList = response.data
                 .slice(0, 10).map(hotel => {
@@ -134,9 +110,19 @@ function PrivateHome(props) {
                 attractionState={attractionState}
             />
             
-            <div className="button-div">
-                <Button className="save-btn" onClick={saveInput}>Save Search</Button>{' '}
-                <h4 className="save-alert" style={{ display: alertDivState }}>Search Saved!</h4>
+            <div className="save-div">
+                <Button className="save-btn" onClick={saveInput}>
+                    Save Search
+                </Button>
+                <Toast 
+                className="save-toast"
+                onClose={() => setSaved(false)} 
+                show={saved} 
+                delay={2000} 
+                autohide
+                >
+                    <Toast.Body>Search Saved!</Toast.Body>
+                </Toast>
             </div>
         </div>
     )
