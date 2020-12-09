@@ -22,7 +22,6 @@ function Home() {
 
 
     function changeFlightState(data) {
-        // console.log("setting data...", data.data)
         setFlightState(
             {
                 ...flightState,
@@ -41,14 +40,12 @@ function Home() {
     };
     function handleFormSubmit(event) {
         event.preventDefault();
-        console.log("running?");
         API.getFlight({
             city1: formObject.city1,
             city2: formObject.city2,
             outboundDate: formatDate(formObject.outboundDate)
         })
             .then(res => {
-                console.log("FS", res)
                 changeFlightState(res);
             })
             .catch(err => console.log(err));
@@ -57,13 +54,11 @@ function Home() {
         //get covid info
         API.getState(formObject.stateCode)
             .then(res => {
-                console.log("SL:", res.data);
                 setNewsState(res.data);
             })
             .catch(err => console.log(err));
         // get hotels info
         API.getHotels({ city2: formObject.city2 }).then(response => {
-            console.log("HS", response.data)
             response.data.sort((a, b) => b.starRating - a.starRating);
             const hotelsList = response.data
                 .slice(0, 10).map(hotel => {
@@ -76,14 +71,18 @@ function Home() {
                     return hotelObject;
                 });
             setHotelState(hotelsList);
-        }).catch(err => console.log(err));
+        }).catch(err => {
+            console.log(err)
+            setHotelState(["N/A"])
+        }
+        );
 
         // get attraction info
         API.getAttractions(formObject.city2)
-        .then(response => {
-            const attractionsList = response.data
-        setAttractionState(attractionsList);
-                })
+            .then(response => {
+                const attractionsList = response.data
+                setAttractionState(attractionsList);
+            })
     };
     return (
         <div>
