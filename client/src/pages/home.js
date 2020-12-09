@@ -16,7 +16,7 @@ function formatDate(date) {
 function Home() {
 
     const [formObject, setFormObject] = React.useState({})
-    const [flightState, setFlightState] = React.useState({})
+    const [flightState, setFlightState] = React.useState({Intial: "Start"})
     const [hotelState, setHotelState] = React.useState([])
     const [newsState, setNewsState] = React.useState([])
     const [attractionState, setAttractionState] = React.useState([])
@@ -28,7 +28,8 @@ function Home() {
                 ...flightState,
                 Quotes: data.data.Quotes,
                 Carriers: data.data.Carriers,
-                Places: data.data.Places
+                Places: data.data.Places,
+                Intial: "Called"
 
             }
         );
@@ -49,7 +50,9 @@ function Home() {
             .then(res => {
                 changeFlightState(res);
             })
-            .catch(err => console.log(err));
+            .catch(err => {console.log(err)
+                setFlightState({Quotes: "N/A"})
+            });
 
 
         //get covid info
@@ -57,7 +60,9 @@ function Home() {
             .then(res => {
                 setNewsState(res.data);
             })
-            .catch(err => console.log(err));
+            .catch(err => {console.log(err)
+                setNewsState(["N/A"])
+            });
         // get hotels info
         API.getHotels({ city2: formObject.city2 }).then(response => {
             response.data.sort((a, b) => b.starRating - a.starRating);
@@ -83,7 +88,11 @@ function Home() {
             .then(response => {
                 const attractionsList = response.data
                 setAttractionState(attractionsList);
-            })
+            }).catch(err => {
+                console.log(err)
+                setAttractionState(["N/A"])
+            }
+            );
     };
     return (
         <div>
