@@ -1,10 +1,95 @@
 import React from "react";
 import { Card, Accordion } from "react-bootstrap";
+import API from "../../utils/API";
+import Headlines from '../Headlines/headlines.js';
+import Flights from '../Flights/flights.js';
+import Hotels from '../Hotels/hotels.js';
+import Attractions from '../Attractions/attractions.js';
 
 function SavedSearch(props) {
     const searchObj = props.search;
 
+    const [flightInfo, setFlightInfo] = React.useState({Intial: "Start"})
+    const [hotelInfo, setHotelInfo] = React.useState([])
+    const [newsInfo, setNewsInfo] = React.useState([])
+    const [attractionInfo, setAttractionInfo] = React.useState([])
     
+    // format date function 
+    function formatDate(date) {
+        let splitDate = date.split("/")
+        splitDate.reverse()
+        let formatedDate = splitDate.join("-");
+        return formatedDate
+    }
+
+    // change flight info state function 
+    function changeflightInfo(data) {
+        setFlightInfo(
+            {
+                ...flightInfo,
+                Quotes: data.data.Quotes,
+                Carriers: data.data.Carriers,
+                Places: data.data.Places,
+                Intial: "Called"
+            }
+        );
+    }
+
+    if (props.search) {
+        API.getFlight({
+            city1: searchObj.city1,
+            city2: searchObj.city2,
+            outboundDate: formatDate(searchObj.outboundDate)
+        })
+            .then(res => {
+                changeflightInfo(res);
+            })
+            .catch(err => {
+                console.log(err)
+                setFlightInfo({ error: "N/A" })
+            });
+
+
+        //get covid info
+        API.getState(searchObj.stateCode)
+            .then(res => {
+                setNewsInfo(res.data);
+            })
+            .catch(err => {
+                console.log(err)
+                setNewsInfo(["N/A"])
+            });
+        // get hotels info
+        API.getHotels({ city2: searchObj.city2 }).then(response => {
+            response.data.sort((a, b) => b.starRating - a.starRating);
+            const hotelsList = response.data
+                .slice(0, 10).map(hotel => {
+                    const hotelObject = {
+                        name: hotel.name,
+                        star: hotel.starRating,
+                        image: hotel.thumbnailUrl,
+                        price: (hotel.ratePlan) ? hotel.ratePlan.price.current : "N/A"
+                    }
+                    return hotelObject;
+                });
+            setHotelInfo(hotelsList);
+        }).catch(err => {
+            console.log(err)
+            setHotelInfo(["N/A"])
+        }
+        );
+
+        // get attraction info
+        API.getAttractions(searchObj.city2)
+            .then(response => {
+                const attractionsList = response.data
+                setAttractionInfo(attractionsList);
+            }).catch(err => {
+                console.log(err)
+                setAttractionInfo(["N/A"])
+            }
+            );
+    }
 
     return (
         <Card>
@@ -23,7 +108,7 @@ function SavedSearch(props) {
                         </Accordion.Toggle>
                         <Accordion.Collapse eventKey="0">
                             <Card.Body>
-                                Flights Info
+                                {/* <Flights flightInfo = {flightInfo} /> */}
                             </Card.Body>
                         </Accordion.Collapse>
                     </Card>
@@ -33,7 +118,7 @@ function SavedSearch(props) {
                         </Accordion.Toggle>
                         <Accordion.Collapse eventKey="1">
                             <Card.Body>
-                                COVID-19 Info
+                                <Headlines newsInfo = {newsInfo} />
                         </Card.Body>
                         </Accordion.Collapse>
                     </Card>
@@ -43,7 +128,7 @@ function SavedSearch(props) {
                         </Accordion.Toggle>
                         <Accordion.Collapse eventKey="2">
                             <Card.Body>
-                                Hotels Info
+                                <Hotels hotelInfo = {hotelInfo} />
                         </Card.Body>
                         </Accordion.Collapse>
                     </Card>
@@ -53,7 +138,7 @@ function SavedSearch(props) {
                         </Accordion.Toggle>
                         <Accordion.Collapse eventKey="3">
                             <Card.Body>
-                                Attractions Info
+                                <Attractions attractionInfo = {attractionInfo} />
                         </Card.Body>
                         </Accordion.Collapse>
                     </Card>
