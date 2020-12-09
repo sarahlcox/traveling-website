@@ -3,6 +3,7 @@ import SearchContainer from '../components/Search/SearchContainer.js';
 import CardLayout from '../components/Layout/CardLayout.js';
 import API from "../utils/API";
 import MyNav from "../components/Nav/navbar.js";
+import Footer from "../components/Footer/Footer.js"
 
 function formatDate(date) {
     let splitDate = date.split("/")
@@ -99,6 +100,7 @@ function Home() {
                 newsState={newsState}
                 attractionState={attractionState}
             />
+            <Footer />
         </div>
     )
 }
