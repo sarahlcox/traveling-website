@@ -1,14 +1,18 @@
+.save-div {
+    position: relative;
+}
+
 .save-btn{
     margin-left: 44%;
     height: 60px;
     width: 200px;
     font-size: 20px !important;
-    margin-bottom: 70px;
 }
 
-.save-alert{
-    position: relative;
-    left: 46%;
-    bottom: 0%;
-    color: rgb(255, 255, 255);
+.save-toast{
+    position: absolute;
+    top: -25%;
+    right: 0;
+    background-color: rgb(64, 0, 120) !important;
+    color: rbg(225, 225, 225);
 }
