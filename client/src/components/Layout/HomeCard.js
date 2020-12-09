@@ -1,15 +1,14 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card'
-import './cardlayout.css';
 
-function HomeCard () {
+function HomeCard (props) {
 
 return (
-    <div className="card-cont">
-        <Card>
-            <Card.Body>Start your search above</Card.Body>
+        <Card className="single-card" >
+            <Card.Body>
+                <Card.Title className="card-heading">Please enter in your travel information to search for {props.info.toLowerCase()} details.</Card.Title>
+            </Card.Body>
         </Card>
-</div>
 )
     
 }

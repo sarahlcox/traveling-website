@@ -41,7 +41,6 @@ if (localStorage.jwtToken) {
 }
 
 function App () {
-  console.log("passing decoded",decoded)
     return (
       <Provider store={store}>
         <Router>
