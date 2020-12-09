@@ -14,11 +14,11 @@ function formatDate(date) {
     return formatedDate
 }
 
-var hideShow="none";
+var hideShow = "none";
 function PrivateHome(props) {
 
     const [formObject, setFormObject] = React.useState({})
-    const [flightState, setFlightState] = React.useState({})
+    const [flightState, setFlightState] = React.useState({Intial: "Start"})
     const [hotelState, setHotelState] = React.useState([])
     const [newsState, setNewsState] = React.useState([])
     const [attractionState, setAttractionState] = React.useState([])
@@ -30,15 +30,16 @@ function PrivateHome(props) {
                 ...flightState,
                 Quotes: data.data.Quotes,
                 Carriers: data.data.Carriers,
-                Places: data.data.Places
+                Places: data.data.Places,
+                Intial: "Called"
 
             }
         );
     }
 
-    function saveInput(){
+    function saveInput() {
         setSaved(true);
-        API.saveSearch({ 
+        API.saveSearch({
             userId: props.userId.id,
             city1: formObject.city1,
             city2: formObject.city2,
@@ -63,7 +64,10 @@ function PrivateHome(props) {
             .then(res => {
                 changeFlightState(res);
             })
-            .catch(err => console.log(err));
+            .catch(err => {
+                console.log(err)
+                setFlightState({ error: "N/A" })
+            });
 
 
         //get covid info
@@ -71,7 +75,10 @@ function PrivateHome(props) {
             .then(res => {
                 setNewsState(res.data);
             })
-            .catch(err => console.log(err));
+            .catch(err => {
+                console.log(err)
+                setNewsState(["N/A"])
+            });
         // get hotels info
         API.getHotels({ city2: formObject.city2 }).then(response => {
             response.data.sort((a, b) => b.starRating - a.starRating);
@@ -86,14 +93,22 @@ function PrivateHome(props) {
                     return hotelObject;
                 });
             setHotelState(hotelsList);
-        }).catch(err => console.log(err));
+        }).catch(err => {
+            console.log(err)
+            setHotelState(["N/A"])
+        }
+        );
 
         // get attraction info
         API.getAttractions(formObject.city2)
-        .then(response => {
-            const attractionsList = response.data
-        setAttractionState(attractionsList);
-                })
+            .then(response => {
+                const attractionsList = response.data
+                setAttractionState(attractionsList);
+            }).catch(err => {
+                console.log(err)
+                setAttractionState(["N/A"])
+            }
+            );
     };
     return (
         <div>
@@ -109,17 +124,17 @@ function PrivateHome(props) {
                 newsState={newsState}
                 attractionState={attractionState}
             />
-            
+
             <div className="save-div">
                 <Button className="save-btn" onClick={saveInput}>
                     Save Search
                 </Button>
-                <Toast 
-                className="save-toast"
-                onClose={() => setSaved(false)} 
-                show={saved} 
-                delay={2000} 
-                autohide
+                <Toast
+                    className="save-toast"
+                    onClose={() => setSaved(false)}
+                    show={saved}
+                    delay={2000}
+                    autohide
                 >
                     <Toast.Body>Search Saved!</Toast.Body>
                 </Toast>
