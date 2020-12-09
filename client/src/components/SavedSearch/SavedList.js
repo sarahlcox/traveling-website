@@ -23,7 +23,7 @@ function SearchesList(props){
     function mapList(list){
         let newList = list.map(e => {
             return (
-                <tr key={list.indexOf(e)}>
+                <tr data-id={list.indexOf(e)} key={list.indexOf(e)} onClick={props.handleClick}>
                     <td>{capitalize(e.city1)}</td>
                     <td>{capitalize(e.city2)}, {e.stateCode}</td>
                     <td>{formatDate(e.outboundDate)}</td>
@@ -34,7 +34,7 @@ function SearchesList(props){
     }
 
     return(
-        <Card className="single-card">
+        <Card>
             <Card.Body>
                 <Card.Title>Saved Searches</Card.Title>
                 {savedList === null ? (
