@@ -9,6 +9,10 @@ Travel Pocket Wizard is a convenient travel companion application.
 
 ![Travel Pocket Wizard Demo](./client/public/assets/travel-pocket-wizard-demo.gif)
 
+## Screenshots
+<img width="739" alt="TPW1" src="https://user-images.githubusercontent.com/71082846/101497584-2153ef00-3939-11eb-9e0d-40b5fb64e6e3.png">
+<img width="743" alt="TPW2" src="https://user-images.githubusercontent.com/71082846/101497594-23b64900-3939-11eb-8ee3-26878e3e8058.png">
+
 ## Table of Contents
   1. [Installation](#Installation)
   2. [Usage](#Usage)
