@@ -5,6 +5,7 @@ import Flights from '../Flights/flights.js';
 import Hotels from '../Hotels/hotels.js';
 import Attractions from '../Attractions/attractions.js';
 import EmptyCard from '../Layout/EmptyCard';
+import HomeCard from "./HomeCard"
 import './cardlayout.css';
 
 // import "./style.css";
@@ -19,7 +20,9 @@ return (
         </CardDeck>
         <CardDeck>
             {(props.hotelState[0]) ? 
-            <Hotels hotelInfo = {props.hotelState} /> : <EmptyCard info={"Hotel"}/>}
+                (props.hotelState[0] != "N/A")?
+                    <Hotels hotelInfo = {props.hotelState} /> : <EmptyCard info={"Hotel"}/>
+            : <HomeCard info={"Hotel"}/>}
             {(props.attractionState[0]) ? 
             <Attractions attractionInfo = {props.attractionState} /> : <EmptyCard info={"Attractions"}/>}
         </CardDeck>
