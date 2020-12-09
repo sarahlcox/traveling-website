@@ -50,25 +50,30 @@ class Dashboard extends Component {
     return (
       <div>
         <PrivateNav />
-        <Container className="cont mt-4">
+        <Container fluid className="cont mt-4">
           <Row>
-            <Jumbotron className="greeting mx-auto">
-              <h1 className="mb-4"><b>Hey there,</b> {user.name.split(" ")[0]}</h1>
-              <h3 className="mb-2">
-                You are logged into {" "}
-                <span>Travel Pocket Wizard</span>
-              </h3>
-              <Button
-                onClick={this.onLogoutClick}
-                size="lg"
-                className="logout-btn my-2"
-              >
-                Logout
+            <Col xs={{span: 12, order: 2}} md={{span: 5, order: 1}} xl={{span: 4, order: 1}}>
+              {this.grabList(this.state)}
+            </Col>
+            <Col xs={{span: 12, order: 1}} md={{span: 7, order: 2}} xl={{span: 8, order: 2}}>
+              <Jumbotron className="greeting mx-auto">
+                <h1 className="mb-4"><b>Hey there,</b> {user.name.split(" ")[0]}</h1>
+                <h3 className="mb-2">
+                  You are logged into {" "}
+                  <span>Travel Pocket Wizard</span>
+                </h3>
+                <Button
+                  onClick={this.onLogoutClick}
+                  size="lg"
+                  className="logout-btn my-2"
+                >
+                  Logout
                 </Button>
-            </Jumbotron>
-          </Row>
-          <Row>
-            {this.grabList(this.state)}
+              </Jumbotron>
+            </Col>
+            <Col xs={{span: 12, order: 12}}  md={{span: 7, offset: 5, order:12}} xl={{span: 8, offset: 4, order:12}}>
+              <h1>Hello World</h1>
+            </Col>
           </Row>
         </Container>
       </div>
