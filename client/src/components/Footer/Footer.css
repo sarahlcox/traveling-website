@@ -1,7 +1,6 @@
 .footer {
     background-color: black;
     padding-top: 20px;
-    padding-bottom: 20px;
     margin: auto;
     /* position: fixed;
     bottom:0; */
@@ -24,4 +23,19 @@
     float: left;
     font-size: smaller;
     margin-left: 10px
+    position: fixed;
+    bottom: 0;
+}
+
+h1{
+    font-family: 'Ragila';
+    color: white;
+}
+
+li {
+    color: white;
+}
+
+a{
+    color:rgb(205, 205, 205) !important;
 }
