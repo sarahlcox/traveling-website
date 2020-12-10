@@ -1,22 +1,5 @@
-@font-face {
-  font-family: 'Sahar-Bold';
-  font-style: normal;
-  src: url('./Assets/Fonts/Sahar-Bold.eot'); /* IE9 Compat Modes */
-  src: local('Sahar-Bold'),
-       url('./Assets/Fonts/Sahar-Bold.eot') format('embedded-opentype'), /* IE6-IE8 */
-       url('./Assets/Fonts/Sahar-Bold.woff2') format('woff2'), /* Super Modern Browsers */
-       url('./Assets/Fonts/Sahar-Bold.woff') format('woff'), /* Modern Browsers */
-}
-@font-face {
-  font-family: 'Sahar-Regular';
-  font-style: normal;
-  src: url('./Assets/Fonts/Sahar-Regular.eot'); /* IE9 Compat Modes */
-  src: local('Sahar-Regular'), 
-       url('./Assets/Fonts/Sahar-Regular.eot') format('embedded-opentype'), /* IE6-IE8 */
-       url('./Assets/Fonts/Sahar-Regular.woff2') format('woff2'), /* Super Modern Browsers */
-       url('./Assets/Fonts/Sahar-Regular.woff') format('woff'), /* Modern Browsers */
-       url('./Assets/Fonts/Sahar-Regular.ttf') format('truetype'), /* Safari, Android, iOS */
-}
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;900&display=swap');
+
 @font-face {
   font-family: 'Ragila', serif;
   font-style: normal;
@@ -29,7 +12,7 @@
 
 body {
   margin: 0;
-  font-family: 'Sahar-Regular';
+  font-family: 'Roboto', sans-serif;
   /* font-family: -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; */
