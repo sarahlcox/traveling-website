@@ -1,3 +1,12 @@
+@font-face {
+  font-family: 'Sahar-Bold';
+  font-style: normal;
+  src: url('../../Assets/Fonts/Sahar-Bold.eot'); /* IE9 Compat Modes */
+  src: local('Sahar-Bold'),
+       url('../../Assets/Fonts/Sahar-Bold.eot') format('embedded-opentype'), /* IE6-IE8 */
+       url('../../Assets/Fonts/Sahar-Bold.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../../Assets/Fonts/Sahar-Bold.woff') format('woff'), /* Modern Browsers */
+}
 .card-cont {
     padding: 10px;
     margin:25px;
@@ -9,5 +18,11 @@
 
 .card-title {
   color: rgb(64, 0, 120);
+  /* font-family: 'Ragila'; */
+  font-size: 20px !important;
   font-weight: bold;
+}
+
+.production {
+  color: white !important;
 }
