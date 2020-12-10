@@ -3,4 +3,25 @@
     padding-top: 20px;
     padding-bottom: 20px;
     margin: auto;
+    /* position: fixed;
+    bottom:0; */
+}
+#fl{
+    float: right;
+}
+.fl{ float: left;}
+#logo{
+    float: left;
+    position: relative;
+    margin: -10px !important;
+}
+#lf{
+    float: left;
+    
+}
+#cc{
+    color: rgb(94, 94, 94);
+    float: left;
+    font-size: smaller;
+    margin-left: 10px
 }
