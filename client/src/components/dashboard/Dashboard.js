@@ -1,12 +1,12 @@
-import React, { Component } from "react";
-import { Container, Jumbotron, Row, Col, Button } from "react-bootstrap";
+import React from "react";
+import { Container, Row, Col } from "react-bootstrap";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
 import PrivateNav from "../Nav/PrivateNav.js";
 import Footer from "../Footer/Footer"
 import Greeting from "./Greeting";
-import SearchInfo from "../SavedSearch/SearchInfo";
+// import SearchInfo from "../SavedSearch/SearchInfo";
 import SavedList from "../SavedSearch/SavedList";
 import API from "../../utils/API";
 import "./Dashboard.css";
@@ -14,7 +14,7 @@ import "./Dashboard.css";
 function Dashboard(props) {
   // define state
   const [savedState, setSavedState] = React.useState([]);
-  const [searchObj, setSearchObj] = React.useState({});
+  // const [searchObj, setSearchObj] = React.useState({});
 
   const onLogoutClick = e => {
     e.preventDefault();
@@ -33,23 +33,38 @@ function Dashboard(props) {
     })
   }
 
-  const handleClick = event => {
-    const index = event.target.parentElement.getAttribute("data-id");
-    const entryObj = {
-      city1: savedState[index].city1,
-      city2: savedState[index].city2,
-      stateCode: savedState[index].stateCode,
-      outboundDate: savedState[index].outboundDate
-    }
-    setSearchObj(entryObj);
-}
+//   const handleClick = event => {
+//     const index = event.target.parentElement.getAttribute("data-id");
+//     const entryObj = {
+//       city1: savedState[index].city1,
+//       city2: savedState[index].city2,
+//       stateCode: savedState[index].stateCode,
+//       outboundDate: savedState[index].outboundDate
+//     }
+//     setSearchObj(entryObj);
+// }
 
   return (
     <div>
       <PrivateNav />
       <Container fluid className="cont mt-4">
         <Row>
-            <Col 
+          <Greeting
+            username={user.name.split(" ")[0]}
+            logout={onLogoutClick}
+          />
+        </Row>
+        <Row>
+          <Col 
+            xs={{span: 12, offsset: 0}}
+            md={{span: 8, offset: 2}} 
+            lg={{span: 6, offset: 3}} 
+          >
+            <SavedList 
+              list={(savedState[0]) ? (Object.values(savedState)) : (null)}
+            />
+          </Col>
+            {/* <Col 
             xs={{span: 12, order: 2}}
             md={{span: 5, order: 1}} 
             xl={{span: 4, order: 1}}>
@@ -72,7 +87,7 @@ function Dashboard(props) {
             md={{span: 7, offset: 5, order:12}} 
             xl={{span: 8, offset: 4, order:12}}>
               <SearchInfo search={(!searchObj.city1) ? null : searchObj}/>
-            </Col>
+            </Col> */}
           </Row>
         </Container>
         <Footer/>

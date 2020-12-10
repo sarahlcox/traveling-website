@@ -23,7 +23,11 @@ function SearchesList(props){
     function mapList(list){
         let newList = list.map(e => {
             return (
-                <tr data-id={list.indexOf(e)} key={list.indexOf(e)} onClick={props.handleClick}>
+                <tr 
+                data-id={list.indexOf(e)} 
+                key={list.indexOf(e)} 
+                // onClick={props.handleClick}
+                >
                     <td>{capitalize(e.city1)}</td>
                     <td>{capitalize(e.city2)}, {e.stateCode}</td>
                     <td>{formatDate(e.outboundDate)}</td>
