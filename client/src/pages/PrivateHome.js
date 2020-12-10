@@ -5,6 +5,7 @@ import CardLayout from '../components/Layout/CardLayout.js';
 import API from "../utils/API";
 import Button from 'react-bootstrap/Button';
 import PrivateNav from '../components/Nav/PrivateNav.js';
+import Footer from "../components/Footer/Footer"
 import "./Pages.css";
 
 function formatDate(date) {
@@ -139,6 +140,7 @@ function PrivateHome(props) {
                     <Toast.Body>Search Saved!</Toast.Body>
                 </Toast>
             </div>
+            <Footer />
         </div>
     )
 }

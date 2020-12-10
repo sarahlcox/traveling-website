@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { registerUser } from "../../actions/authActions";
 import classnames from "classnames";
+import Footer from "../Footer/Footer"
 import "./Login.css";
 
 
@@ -141,6 +142,7 @@ return (
             </form>
           </div>
         </div>
+        <Footer/>
       </div>
     );
   }
