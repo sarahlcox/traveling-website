@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
 import PrivateNav from "../Nav/PrivateNav.js";
+import Footer from "../Footer/Footer"
 import Greeting from "./Greeting";
 import SearchInfo from "../SavedSearch/SearchInfo";
 import SavedList from "../SavedSearch/SavedList";
@@ -74,6 +75,7 @@ function Dashboard(props) {
             </Col>
           </Row>
         </Container>
+        <Footer/>
       </div>
   );
 }

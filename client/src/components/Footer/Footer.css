@@ -2,8 +2,21 @@
     background-color: black;
     padding-top: 20px;
     margin: auto;
-    position: fixed;
-    bottom: 0;
+    /* position: fixed;
+    bottom:0; */
+}
+#fl{
+    float: right;
+}
+.fl{ float: left;}
+#logo{
+    float: left;
+    position: relative;
+    margin: -10px !important;
+}
+#lf{
+    float: left;
+    
 }
 
 h1{
@@ -17,4 +30,9 @@ li {
 
 a{
     color:rgb(205, 205, 205) !important;
+}
+#ccf{
+    margin-left: 10px;
+    float: left;
+    color: rgb(94, 94, 94);
 }
