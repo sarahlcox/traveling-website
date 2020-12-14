@@ -5,92 +5,93 @@ import Headlines from '../Headlines/headlines.js';
 import Flights from '../Flights/flights.js';
 import Hotels from '../Hotels/hotels.js';
 import Attractions from '../Attractions/attractions.js';
+import EmptyCard from "../Layout/EmptyCard"
+
 
 function SavedSearch(props) {
     const searchObj = props.search;
 
-    const [flightInfo, setFlightInfo] = React.useState({Intial: "Start"})
-    const [hotelInfo, setHotelInfo] = React.useState([])
-    const [newsInfo, setNewsInfo] = React.useState([])
-    const [attractionInfo, setAttractionInfo] = React.useState([])
+    // const [flightInfo, setFlightInfo] = React.useState({Intial: "Start"})
+    // const [hotelInfo, setHotelInfo] = React.useState([])
+    // const [newsInfo, setNewsInfo] = React.useState([])
+    // const [attractionInfo, setAttractionInfo] = React.useState([])
     
-    // format date function 
-    function formatDate(date) {
-        let splitDate = date.split("/")
-        splitDate.reverse()
-        let formatedDate = splitDate.join("-");
-        return formatedDate
-    }
+    // // format date function 
+    // function formatDate(date) {
+    //     let splitDate = date.split("/")
+    //     splitDate.reverse()
+    //     let formatedDate = splitDate.join("-");
+    //     return formatedDate
+    // }
 
-    // change flight info state function 
-    function changeflightInfo(data) {
-        setFlightInfo(
-            {
-                ...flightInfo,
-                Quotes: data.data.Quotes,
-                Carriers: data.data.Carriers,
-                Places: data.data.Places,
-                Intial: "Called"
-            }
-        );
-    }
+    // // change flight info state function 
+    // function changeflightInfo(data) {
+    //     setFlightInfo(
+    //         {
+    //             ...flightInfo,
+    //             Quotes: data.data.Quotes,
+    //             Carriers: data.data.Carriers,
+    //             Places: data.data.Places,
+    //             Intial: "Called"
+    //         }
+    //     );
+    // }
 
-    if (props.search) {
-        API.getFlight({
-            city1: searchObj.city1,
-            city2: searchObj.city2,
-            outboundDate: formatDate(searchObj.outboundDate)
-        })
-            .then(res => {
-                changeflightInfo(res);
-            })
-            .catch(err => {
-                console.log(err)
-                setFlightInfo({ error: "N/A" })
-            });
+    // if (props.search) {
+    //     API.getFlight({
+    //         city1: searchObj.city1,
+    //         city2: searchObj.city2,
+    //         outboundDate: formatDate(searchObj.outboundDate)
+    //     })
+    //         .then(res => {
+    //             changeflightInfo(res);
+    //         })
+    //         .catch(err => {
+    //             console.log(err)
+    //             setFlightInfo({ error: "N/A" })
+    //         });
 
 
-        //get covid info
-        API.getState(searchObj.stateCode)
-            .then(res => {
-                setNewsInfo(res.data);
-            })
-            .catch(err => {
-                console.log(err)
-                setNewsInfo(["N/A"])
-            });
-        // get hotels info
-        API.getHotels({ city2: searchObj.city2 }).then(response => {
-            response.data.sort((a, b) => b.starRating - a.starRating);
-            const hotelsList = response.data
-                .slice(0, 10).map(hotel => {
-                    const hotelObject = {
-                        name: hotel.name,
-                        star: hotel.starRating,
-                        image: hotel.thumbnailUrl,
-                        price: (hotel.ratePlan) ? hotel.ratePlan.price.current : "N/A"
-                    }
-                    return hotelObject;
-                });
-            setHotelInfo(hotelsList);
-        }).catch(err => {
-            console.log(err)
-            setHotelInfo(["N/A"])
-        }
-        );
+    //     //get covid info
+    //     API.getState(searchObj.stateCode)
+    //         .then(res => {
+    //             setNewsInfo(res.data);
+    //         })
+    //         .catch(err => {
+    //             console.log(err)
+    //             setNewsInfo(["N/A"])
+    //         });
+    //     // get hotels info
+    //     API.getHotels({ city2: searchObj.city2 }).then(response => {
+    //         response.data.sort((a, b) => b.starRating - a.starRating);
+    //         const hotelsList = response.data
+    //             .slice(0, 10).map(hotel => {
+    //                 const hotelObject = {
+    //                     name: hotel.name,
+    //                     star: hotel.starRating,
+    //                     image: hotel.thumbnailUrl,
+    //                     price: (hotel.ratePlan) ? hotel.ratePlan.price.current : "N/A"
+    //                 }
+    //                 return hotelObject;
+    //             });
+    //         setHotelInfo(hotelsList);
+    //     }).catch(err => {
+    //         console.log(err)
+    //         setHotelInfo(["N/A"])
+    //     }
+    //     );
 
-        // get attraction info
-        API.getAttractions(searchObj.city2)
-            .then(response => {
-                const attractionsList = response.data
-                setAttractionInfo(attractionsList);
-            }).catch(err => {
-                console.log(err)
-                setAttractionInfo(["N/A"])
-            }
-            );
-    }
-
+    //     // get attraction info
+    //     API.getAttractions(searchObj.city2)
+    //         .then(response => {
+    //             const attractionsList = response.data
+    //             setAttractionInfo(attractionsList);
+    //         }).catch(err => {
+    //             console.log(err)
+    //             setAttractionInfo(["N/A"])
+    //         }
+    //         );
+    // }
     return (
         <Card>
             <Card.Body>
@@ -108,7 +109,8 @@ function SavedSearch(props) {
                         </Accordion.Toggle>
                         <Accordion.Collapse eventKey="0">
                             <Card.Body>
-                                {/* <Flights flightInfo = {flightInfo} /> */}
+                            {(props.flightInfo.Quotes) ? 
+            <Flights flightInfo = {props.flightInfo} /> : null }
                             </Card.Body>
                         </Accordion.Collapse>
                     </Card>
@@ -118,7 +120,8 @@ function SavedSearch(props) {
                         </Accordion.Toggle>
                         <Accordion.Collapse eventKey="1">
                             <Card.Body>
-                                <Headlines newsInfo = {newsInfo} />
+                            {(props.newsInfo.state) ? 
+            <Headlines newsInfo = {props.newsInfo} /> : null}  
                         </Card.Body>
                         </Accordion.Collapse>
                     </Card>
@@ -128,7 +131,10 @@ function SavedSearch(props) {
                         </Accordion.Toggle>
                         <Accordion.Collapse eventKey="2">
                             <Card.Body>
-                                <Hotels hotelInfo = {hotelInfo} />
+                            {(props.hotelInfo[0]) ? 
+                (props.hotelInfo[0] != "N/A")?
+                    <Hotels hotelInfo = {props.hotelInfo} /> : <EmptyCard info={"Hotel"}/>
+             : null}
                         </Card.Body>
                         </Accordion.Collapse>
                     </Card>
@@ -138,7 +144,10 @@ function SavedSearch(props) {
                         </Accordion.Toggle>
                         <Accordion.Collapse eventKey="3">
                             <Card.Body>
-                                <Attractions attractionInfo = {attractionInfo} />
+                            {(props.attractionInfo[0]) ? 
+                (props.attractionInfo[0] != "N/A")?
+                    <Attractions attractionInfo = {props.attractionInfo} /> : <EmptyCard info={"Attractions"}/>
+             : null}
                         </Card.Body>
                         </Accordion.Collapse>
                     </Card>
