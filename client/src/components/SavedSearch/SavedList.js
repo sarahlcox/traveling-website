@@ -26,7 +26,7 @@ function SearchesList(props){
                 <tr 
                 data-id={list.indexOf(e)} 
                 key={list.indexOf(e)} 
-                // onClick={props.handleClick}
+                onClick={props.handleClick}
                 >
                     <td>{capitalize(e.city1)}</td>
                     <td>{capitalize(e.city2)}, {e.stateCode}</td>
